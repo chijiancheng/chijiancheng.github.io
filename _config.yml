@@ -7,7 +7,6 @@
 
 # Site Settings
 title                    : "Jiancheng Chi \\ 池建成"
-title                    : "Jiancheng Chi \\ 池建成"
 description              : "Ph.D Student at SmarIoT Lab in College of Intelligence and Computing, Tianjin Universuty."
 repository               : "chijiancheng/chijiancheng.github.io"
 google_scholar_stats_use_cdn : true
@@ -22,7 +21,8 @@ baidu_site_verification  : code-ZxFK3f4pfb
 
 # Site Author
 author:
-  name             : "Jiancheng Chi (池建成)"
+  name             : "Jiancheng Chi"
+  name2            : "池建成"
   avatar           : "images/Chi.jpg"
   bio              : "SmartIoT Lab"
   location         : "China, Japan"
