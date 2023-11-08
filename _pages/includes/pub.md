@@ -11,4 +11,4 @@
 - 姚悦, 任林杰, **池建成**, 徐天一, 刘许超.  一种面向强波动高噪声电力时序数据的压缩方法. 电力信息与通信技术 2022 (07), 1-9. (EI)
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, Lim Yuto. BLSO: A Broad Learning System-based Approach for Adaptive Task Offloading in IIoT. The 14th International Conference on Mobile Computing and Ubiquitous Networking. 2023. (Information Processing Society of Japan, Flagship Conference)
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Broad Reinforcement Learning-based Task Offloding approach in MEC-enabled Industrial IoT. IEEE INFOCOM, 2023. (CCF-A conference，under review)
-- 池建成, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
+- **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
