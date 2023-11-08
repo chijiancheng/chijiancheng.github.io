@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Jiancheng Chi \\ 池建成"
+title                    : "Jiancheng Chi 池建成"
 description              : "Ph.D Student at SmarIoT Lab in College of Intelligence and Computing, Tianjin Universuty."
 repository               : "chijiancheng/chijiancheng.github.io"
 google_scholar_stats_use_cdn : true
@@ -23,9 +23,9 @@ baidu_site_verification  : code-ZxFK3f4pfb
 author:
   name             : "Jiancheng Chi (池建成)"
   avatar           : "images/Chi.jpg"
-  bio              : "SmartIoT Lab"
+  bio              : "池建成"
   location         : "China, Japan"
-  employer         :
+  employer         : "SmartIoT Lab"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=IZtkGZ0AAAAJ&hl=en"
   email            : "chijiancheng@tju.edu.cn"
