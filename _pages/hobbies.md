@@ -1,5 +1,5 @@
 ---
-permalink: /
+permalink: /hobbies/index.html
 title: ""
 excerpt: ""
 author_profile: true
