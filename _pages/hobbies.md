@@ -9,14 +9,4 @@ redirect_from:
 ---
 
 <span class='anchor' id='biography'></span>
-{% include_relative includes/intro.md %}
-
-{% include_relative includes/edu.md %}
-
-{% include_relative includes/research_interests.md %}
-
-{% include_relative includes/pub.md %}
-
-{% include_relative includes/honers.md %}
-
-{% include_relative includes/news.md %}
+{% include_relative includes/hobbies.md %}
