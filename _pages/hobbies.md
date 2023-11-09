@@ -1,6 +1,6 @@
 ---
 permalink: /hobbies/index.html
-title: ""
+title: Hobbies
 excerpt: ""
 author_profile: true
 redirect_from: 
