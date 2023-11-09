@@ -17,7 +17,7 @@
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
 
 ##  &nbsp;&nbsp; Working Manuscript
-- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, Lim Yuto. BLSO: A Broad Learning System-based Approach for Adaptive Task Offloading in IIoT. INFOCOM. 2023. (CCF-A conference)
+- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, Lim Yuto. Broad Reinforcement Learning-Based Online Task Offloading for Edge-Assisted Industrial IoT. INFOCOM. 2023. (CCF-A conference)
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Improving the Adaptiveness of Task Offloading with Broad Learning System in Industrial IoT. IEEE Internet of Things Journal. 2023. (JCRQ1, IF = 10.6)
 
 ##  &nbsp;&nbsp; Patent
