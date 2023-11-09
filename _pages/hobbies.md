@@ -2,6 +2,7 @@
 layout: default
 permalink: /hobbies/index.html
 title: Hobbies
+author_profile: true
 ---
 
 # Hobbies
