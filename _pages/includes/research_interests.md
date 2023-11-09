@@ -1,5 +1,5 @@
 # ❤ Research Interests
-- Industrial internet of things
+- Industrial Internet of Things
 - Industrial Big Data
 - Task Offloading
 - Blockchain
