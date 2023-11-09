@@ -1,13 +1,13 @@
 # main links links
 main:
   - title: "Biography"
-    url: "/#-biography"
+    url: "/#--biography"
 
   - title: "Educations"
     url: "/#-educations"
 
   - title: "Research Interests"
-    url: "/#-research_interests"
+    url: "/#-research-interests"
 
   - title: "Publications"
     url: "/#-publications"
