@@ -1,5 +1,6 @@
 
 # 📚 Publications 
+## Conference Paper
 - Tie Qiu, **Jiancheng Chi**, Xiaobo Zhou, Zhaolong Ning, Mohammed Atiquzzaman, Dapeng Oliver Wu. Edge Computing in Industrial Internet of Things: Architecture, Advances and Challenges. IEEE Communications Surveys and Tutorials, 2020, 22(4): 2462-2488. (JCRQ1，IF=35.6，SCI&ESI High Cited)
 - **Jiancheng Chi**, Tie Qiu, Fu Xiao, Xiaobo Zhou. ATOM: Adaptive Task Offloading with Two-stage Hybrid Matching in MEC-enabled Induistrial IoT, IEEE Transactions on Mobile Computing, 2023. (CCF-A Journal, IF=7.9)
 - **Jiancheng Chi**, Tie Qiu, et al. How Matching Theory Enables Multi-access Edge Computing Adaptive Task Scheduling in IIoT, IEEE Network, 2022. (JCRQ1，IF=9.3)
@@ -12,3 +13,6 @@
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, Lim Yuto. BLSO: A Broad Learning System-based Approach for Adaptive Task Offloading in IIoT. The 14th International Conference on Mobile Computing and Ubiquitous Networking. 2023. (Information Processing Society of Japan, Flagship Conference)
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Broad Reinforcement Learning-based Task Offloding approach in MEC-enabled Industrial IoT. IEEE INFOCOM, 2023. (CCF-A conference，under review)
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
+
+
+## Journal Paper
