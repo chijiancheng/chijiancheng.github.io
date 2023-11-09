@@ -1,5 +1,5 @@
 ---
-layout: compress
+layout: default
 permalink: /hobbies/index.html
 title: Hobbies
 ---
