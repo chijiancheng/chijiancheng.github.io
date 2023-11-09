@@ -5,6 +5,7 @@ title: Hobbies
 author_profile: true
 ---
 
+
 # Hobbies
 
 ## Teaching & Workshops
