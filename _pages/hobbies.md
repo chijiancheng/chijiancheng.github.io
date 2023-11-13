@@ -4,6 +4,7 @@ title: Hobbies
 excerpt: ""
 layout: default.html
 author_profile: true
+target_self: true
 ---
 
 # Hobbies
