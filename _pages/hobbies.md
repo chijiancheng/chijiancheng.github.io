@@ -2,7 +2,7 @@
 permalink: /hobbies/index.html
 title: Hobbies
 excerpt: ""
-author_profile: true
+author_profile: false
 ---
 
 <span class='anchor' id='biography'></span>
