@@ -2,6 +2,7 @@
 permalink: /hobbies/index.html
 title: Hobbies
 excerpt: ""
+layout: default
 author_profile: true
 ---
 
