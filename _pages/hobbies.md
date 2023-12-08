@@ -21,12 +21,12 @@ target_self: true
   <img src="/images/hobbies/tour/kyoto/IMG_4778.jpg" style="max-width: 200px;">
 </div>
 <div class="third">
-<img src="/images/hobbies/tour/kyoto/IMG_4657.jpg" style="max-width: 200px;">
-<img src="/images/hobbies/tour/kyoto/IMG_4585.jpg" style="max-width: 200px;">
-<img src="/images/hobbies/tour/kyoto/IMG_4617.jpg" style="max-width: 200px;">
-  <img src="/images/hobbies/tour/kyoto/IMG_4809.jpg" style="max-width: 200px;">
-  <img src="/images/hobbies/tour/kyoto/IMG_4829.jpg" style="max-width: 200px;">
-  <img src="/images/hobbies/tour/kyoto/IMG_4778.jpg" style="max-width: 200px;">
+<img src="/images/hobbies/tour/kyoto/IMG_4547.jpg" style="max-width: 200px;">
+<img src="/images/hobbies/tour/kyoto/IMG_4629.jpg" style="max-width: 200px;">
+<img src="/images/hobbies/tour/kyoto/IMG_4669.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/kyoto/IMG_4730.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/kyoto/IMG_4760.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/kyoto/IMG_4797.jpg" style="max-width: 200px;">
 </div>
 <br>The benefits of travel include expanding one's horizons and cultural experiences, promoting personal growth and confidence, reducing stress and anxiety, increasing understanding of the world, establishing new friendships and relationships, and creating precious memories and experiences to enrich one's life.
 
