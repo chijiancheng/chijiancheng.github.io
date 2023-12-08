@@ -1,4 +1,4 @@
-# ❤ Research Interests
+# 💗 Research Interests
 - Industrial Internet of Things
 - Industrial Big Data
 - Edge Computing
