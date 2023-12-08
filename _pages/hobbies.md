@@ -23,7 +23,7 @@ target_self: true
 <div class="third">
   <img src="/images/hobbies/tour/kyoto/IMG_4547.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/kyoto/IMG_4629.jpg" style="max-width: 405px;">
-  <img src="/images/hobbies/tour/kyoto/IMG_4669.jpg" style="max-width: 410px;">
+  <img src="/images/hobbies/tour/kyoto/IMG_4669.jpg" style="max-width: 405px;">
 </div>
 <div class="third">
   <img src="/images/hobbies/tour/kyoto/IMG_4730.jpg" style="max-width: 405px;">
