@@ -12,9 +12,9 @@ target_self: true
 ## Tour
 
 <div class="third">
-<img src="/images/hobbies/tour/kyoto/IMG_4547.JPG">
-<img src="/images/hobbies/tour/kyoto/IMG_4585.JPG">
-<img src="/images/hobbies/tour/kyoto/IMG_4617.JPG">
+<img src="/images/hobbies/tour/kyoto/IMG_4547.jpg">
+<img src="/images/hobbies/tour/kyoto/IMG_4585.jpg">
+<img src="/images/hobbies/tour/kyoto/IMG_4617.jpg">
 </div>
 <br>The benefits of travel include expanding one's horizons and cultural experiences, promoting personal growth and confidence, reducing stress and anxiety, increasing understanding of the world, establishing new friendships and relationships, and creating precious memories and experiences to enrich one's life.
 
