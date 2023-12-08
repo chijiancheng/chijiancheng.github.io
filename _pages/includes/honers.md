@@ -1,4 +1,4 @@
-# 🎖 Honors and Awards
+# 🥇 Honors and Awards
 - **2018** Outstanding Graduate of Tianjin University
 - **2020,2021,2022** Merit Student of Tianjin University (3 times)
 - **2020,2021,2022** First-class Academic Scholarship of Tianjin University (3 times)
