@@ -7,11 +7,11 @@ author_profile: true
 target_self: true
 ---
 
-# Hobbies
+# ✨ Hobbies
 
-## Tour
+## 🌊 Tour
 
-### Japan-Kyoto
+### 🍁Japan-Kyoto
 <div class="third">
   <img src="/images/hobbies/tour/kyoto/IMG_4657.jpg" style="max-width: 200px;">
   <img src="/images/hobbies/tour/kyoto/IMG_4585.jpg" style="max-width: 200px;">
