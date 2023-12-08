@@ -11,6 +11,7 @@ target_self: true
 
 ## Tour
 
+### Japan-Kyoto
 <div class="third">
 <img src="/images/hobbies/tour/kyoto/IMG_4547.jpg">
 <img src="/images/hobbies/tour/kyoto/IMG_4585.jpg">
