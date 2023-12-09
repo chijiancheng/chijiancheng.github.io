@@ -38,10 +38,10 @@ target_self: true
   <img src="/images/hobbies/tour/tokyo/17.jpg" style="max-width: 200px;">
   <img src="/images/hobbies/tour/tokyo/5.jpg" style="max-width: 200px;">
   <img src="/images/hobbies/tour/tokyo/15.jpg" style="max-width: 200px;">
-  <img src="/images/hobbies/tour/tokyo/6.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/8.jpg" style="max-width: 200px;">
 </div>
 <div class="third">
-  <img src="/images/hobbies/tour/tokyo/4.jpg" style="max-width: 405px;">
+  <img src="/images/hobbies/tour/tokyo/22.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/tokyo/7.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/tokyo/16.jpg" style="max-width: 405px;">
 </div>
@@ -53,8 +53,16 @@ target_self: true
 <div class="third">
   <img src="/images/hobbies/tour/tokyo/14.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/tokyo/1.jpg" style="max-width: 405px;">
-  <img src="/images/hobbies/tour/tokyo/4.mp4" style="max-width: 405px;">
+  <img src="/images/hobbies/tour/tokyo/4.jpg" style="max-width: 405px;">
 </div>
+<video width="405" controls>
+  <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video width="405" controls>
+  <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <video width="405" controls>
   <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
   Your browser does not support the video tag.
