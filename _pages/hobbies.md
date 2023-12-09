@@ -70,11 +70,11 @@ target_self: true
   Your browser does not support the video tag.
 </video>
 <video width="405" controls>
-  <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
+  <source src="/images/hobbies/tour/tokyo/25.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <video width="405" controls>
-  <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
+  <source src="/images/hobbies/tour/tokyo/26.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
