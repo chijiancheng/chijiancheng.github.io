@@ -55,6 +55,10 @@ target_self: true
   <img src="/images/hobbies/tour/tokyo/1.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/tokyo/18.mp4" style="max-width: 405px;">
 </div>
+<video width="405" controls>
+  <source src="/images/hobbies/tour/tokyo/18.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <br>The benefits of travel include expanding one's horizons and cultural experiences, promoting personal growth and confidence, reducing stress and anxiety, increasing understanding of the world, establishing new friendships and relationships, and creating precious memories and experiences to enrich one's life.
 
