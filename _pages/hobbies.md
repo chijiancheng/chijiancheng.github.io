@@ -31,7 +31,7 @@ target_self: true
   <img src="/images/hobbies/tour/kyoto/IMG_4797.jpg" style="max-width: 405px;">
 </div>
 
-### 🍁Japan-Tokyo
+### 🗼Japan-Tokyo
 <div class="third">
   <img src="/images/hobbies/tour/tokyo/31.jpg" style="max-width: 200px;">
   <img src="/images/hobbies/tour/tokyo/10.jpg" style="max-width: 200px;">
