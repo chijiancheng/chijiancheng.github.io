@@ -40,6 +40,16 @@ target_self: true
   <img src="/images/hobbies/tour/tokyo/15.jpg" style="max-width: 200px;">
   <img src="/images/hobbies/tour/tokyo/8.jpg" style="max-width: 200px;">
 </div>
+
+<div class="third">
+  <img src="/images/hobbies/tour/tokyo/13.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/19.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/20.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/2.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/23.jpg" style="max-width: 200px;">
+  <img src="/images/hobbies/tour/tokyo/24.jpg" style="max-width: 200px;">
+</div>
+
 <div class="third">
   <img src="/images/hobbies/tour/tokyo/22.jpg" style="max-width: 405px;">
   <img src="/images/hobbies/tour/tokyo/7.jpg" style="max-width: 405px;">
