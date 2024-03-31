@@ -18,7 +18,7 @@
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
 
 ##  &nbsp;&nbsp; 4️⃣ Working Manuscript
-- **Jiancheng Chi**, Xiaobo Zhou, Fu~Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
+- **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
 - **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT. IEEE Transactions on Mobile Computing (TMC). 2024. (JCRQ1, IF=7.9)
 
 ##  &nbsp;&nbsp; 5️⃣ Patent
