@@ -19,7 +19,7 @@
 
 ##  &nbsp;&nbsp; 4️⃣ Working Manuscript
 - **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
-- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT. IEEE Transactions on Mobile Computing (TMC). 2024. (JCRQ1, IF=7.9)
+- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT. IEEE Transactions on Mobile Computing (TMC). 2024. (JCRQ1, CCF-A Journal, IF=7.9)
 - **池建成**, 基于移动边缘计算的工业物联网任务卸载方案研究, 天津大学博士学位论文, 2024.
 
 ##  &nbsp;&nbsp; 5️⃣ Patent
