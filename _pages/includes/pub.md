@@ -12,13 +12,14 @@
 - **Jiancheng Chi**, Tie Qiu, Chaokun Zhang, Laiping Zhao. A Novel Blockchain Network Structure Based on Logical Nodes. 15th International Conference on Wireless Algorithms, Systems, and Applications (WASA 2020), Qingdao, China, September 13–15. (CCF-C conference)
 - Xiaoyu Jiang, Tie Qiu, Xiaobo Zhou, Bin Zhang, Ximin Sun, **Jiancheng Chi**. A Text Similarity-based Protocol Parsing Scheme for Industrial Internet of Things. IEEE 24th International Conference on Computer Supported Cooperative Work in Design (CSCWD 2021), Dalian, China, May 5-7. (CCF-C conference, Best Paper Award)
 - Yifeng Hu, Tie Qiu, **Jiancheng Chi**, Xuan Yang, Zimu Wang, Wenguang Li. Traffic Data Scheduling of Frequent Application Sets for Task Offloading in Multi-access Edge Computing. ICC 2022-IEEE International Conference on Communications, 1605-1610. (CCF-C conference)
+- **Jiancheng Chi**, Zhihan Cui and Yuto Lim. BLSO: Broad Learning System-Based Scheme for Adaptive Task Offloading in Industrial IoT. 2023 Fourteenth International Conference on Mobile Computing and Ubiquitous Network (ICMU), Kyoto, Japan, 2023, pp. 1-6.
 
 ##  &nbsp;&nbsp; 3️⃣ Thesis
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
 
 ##  &nbsp;&nbsp; 4️⃣ Working Manuscript
-- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, Lim Yuto. Broad Reinforcement Learning-Based Online Task Offloading for Edge-Assisted Industrial IoT. INFOCOM. 2023. (CCF-A conference)
-- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Improving the Adaptiveness of Task Offloading with Broad Learning System in Industrial IoT. IEEE Internet of Things Journal. 2023. (JCRQ1, IF = 10.6)
+- **Jiancheng Chi**, Xiaobo Zhou, Fu~Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
+- **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT. IEEE Transactions on Mobile Computing (TMC). 2024. (JCRQ1, IF=7.9)
 
 ##  &nbsp;&nbsp; 5️⃣ Patent
 - Method for identifying and parsing industrial control protocol based on industrial gateway, Tie Qiu, Xiaoyu Jiang, Keqiu Li, **Jiancheng Chi**, Ning Chen. US Patent App. 17/522,601.
