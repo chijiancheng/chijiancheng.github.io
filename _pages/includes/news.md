@@ -1,4 +1,5 @@
 # 🔥 News
+- *2024.06*: 🔥 I have completed my one-year study abroad at JAIST and returned to China！
 - *2024.03*: 🎉 My Google Scholar citations have exceeded 600！
 - *2023.12*: 🎉 My Google Scholar citations have exceeded 500！
 - *2023.07*: 🎉 One paper is accepted by CCF-A and JCR-Q1 top journal IEEE Transactions on Mobile Computing (TMC)！
