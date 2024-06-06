@@ -9,3 +9,5 @@
 - **2021** CSCWD Best Paper Award
 - **2021** ESI High Cited Paper（1%）
 - **2022** CSC Government-sponsored Study Abroad Scholarship
+- **2023** Advanced Individual in Science and Technology Innovation of Tianjin University
+- **2023** Advanced Individual in International Communication of Tianjin University
