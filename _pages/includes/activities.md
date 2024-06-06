@@ -18,4 +18,4 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp; Conference
 - 4th IEEE International Conference on Smart Internet of Things (SmartIoT 2020)
 - 5th IEEE International Conference on Smart Internet of Things (SmartIoT 2021)
-- IEEE ComSoc School Series Tianjin Event
+- IEEE ComSoc School Series Tianjin Event 2023
