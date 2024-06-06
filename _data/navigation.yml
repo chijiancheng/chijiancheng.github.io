@@ -1,7 +1,7 @@
 # main links links
 main:
   - title: "Biography"
-    url: "/#--biography"
+    url: "/#-biography"
 
   - title: "Educations"
     url: "/#-educations"
@@ -16,7 +16,7 @@ main:
     url: "/#-honors-and-awards"
 
   - title: "Activities"
-    url: "/#--activities"
+    url: "/#-activities"
 
   - title: "News"
     url: "/#-news"
