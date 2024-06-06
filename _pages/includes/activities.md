@@ -1,4 +1,4 @@
-# ⛳️ Activities
+# 🔆 Activities
 ##  &nbsp;&nbsp; 1️⃣ Invited Reviewers
 ### &nbsp;&nbsp;&nbsp;&nbsp; Journal
 - IEEE Transactions on Mobile Computing
