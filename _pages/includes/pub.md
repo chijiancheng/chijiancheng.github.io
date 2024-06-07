@@ -30,7 +30,7 @@
 - 邱铁 , 陈宁 , 王浩东 , 李克秋 , 周晓波 , 李涛 , **池建成**.  智慧物联网综合感知系统及方法. 授权公告日：2022.8.9. 公告号: CN113411766B.
 - Method for identifying and parsing industrial control protocol based on industrial gateway, Tie Qiu, Xiaoyu Jiang, Keqiu Li, **Jiancheng Chi**, Ning Chen. US Patent App. 17/522,601.
 - Tie Qiu, Xiaoyu Jiang, **Jiancheng Chi**, Ning Chen. METHOD FOR IDENTIFYING AND PARSING INDUSTRIAL 
-CONTROL PROTOCOL BASED ON INDUSTRIAL GATEWAY. NETHERLAND Patent Number: 2029231
+CONTROL PROTOCOL BASED ON INDUSTRIAL GATEWAY. NETHERLAND Patent Number: 2029231.
 
 ### &nbsp;&nbsp;&nbsp;&nbsp; Under Review
 - 邱铁, 赵泽昊, 陈宁, **池建成**, 胡艺丰, 赵颖颖. 一种面向工业物联网的智慧物联网关. 公告日：2021.09.17. 公告号: CN113411213A
