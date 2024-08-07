@@ -30,14 +30,18 @@ layout: compress
     {% include scripts.html %}
 
  <footer>
-    <div>访问者数量：<span id="visitor-count">加载中...</span></div>
-    <script>
-    function cb(response) {
-        document.getElementById('visitor-count').innerText = response.value;
-    }
-    </script>
-    <script async src="https://api.countapi.xyz/hit/chijiancheng.github.io/visits?callback=cb"></script>
-  </footer>
+  <div>访问者数量：<span id="visitor-count">加载中...</span></div>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-372S7EKPE3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-372S7EKPE3');
+  </script>
+</footer>
+
 
   </body>
 </html>
