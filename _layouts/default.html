@@ -33,7 +33,7 @@ layout: compress
     <div>访问者数量：<span id="visitor-count">加载中...</span></div>
     <script>
     function cb(response) {
-        document.getElementById('visits').innerText = response.value;
+        document.getElementById('visitor-count').innerText = response.value;
     }
     </script>
     <script async src="https://api.countapi.xyz/hit/chijiancheng.github.io/visits?callback=cb"></script>
