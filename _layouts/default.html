@@ -32,17 +32,11 @@ layout: compress
  <footer>
     <div>访问者数量：<span id="visitor-count">加载中...</span></div>
     <script>
-      // 替换 'your-namespace' 和 'your-key' 为你自己的命名空间和键
-      fetch('https://api.countapi.xyz/hit/chijiancheng/940916')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('visitor-count').innerText = data.value;
-        })
-        .catch(error => {
-          console.error('Error fetching visitor count:', error);
-          document.getElementById('visitor-count').innerText = '无法加载';
-        });
+    function cb(response) {
+        document.getElementById('visits').innerText = response.value;
+    }
     </script>
+    <script async src="https://api.countapi.xyz/hit/chijiancheng.github.io/visits?callback=cb"></script>
   </footer>
 
   </body>
