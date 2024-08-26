@@ -18,13 +18,15 @@
 ##  &nbsp;&nbsp; 3️⃣ Thesis
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
 
-##  &nbsp;&nbsp; 4️⃣ Working Manuscript
+##  &nbsp;&nbsp; 4️⃣ Thesis
+
+##  &nbsp;&nbsp; 5️⃣ Working Manuscript
 - **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
 - **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Yuto Lim and Tie Qiu. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT. IEEE Transactions on Mobile Computing (TMC). 2024. (JCRQ1, CCF-A Journal, IF=7.9)
 - **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu. Task Offloading Scheme Based on Semi-supervised Reservoir Computing in IIoT. IEEE Internet of Things Journal, 2024. (JCRQ1, IF=10.6)
 - **池建成**, 基于移动边缘计算的工业物联网任务卸载方案研究, 天津大学博士学位论文, 2024.
 
-##  &nbsp;&nbsp; 5️⃣ Patent
+##  &nbsp;&nbsp; 6️⃣ Patent
 ### &nbsp;&nbsp;&nbsp;&nbsp; Authorized
 - 邱铁 , 姜笑昱 , **池建成** , 陈宁.  一种基于工业网关的工控协议识别与解析方法，授权公告日：2022.8.9. 公告号: CN112788015B.
 - 邱铁 , 陈宁 , 王浩东 , 李克秋 , 周晓波 , **池建成**.  基于物联网的自组网拓扑控制方法及协同监测方法. 授权公告日：2022.5.24. 公告号: CN113411213B.
