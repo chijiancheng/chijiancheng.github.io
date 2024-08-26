@@ -18,7 +18,8 @@
 ##  &nbsp;&nbsp; 3️⃣ Thesis
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
 
-##  &nbsp;&nbsp; 4️⃣ Thesis
+##  &nbsp;&nbsp; 4️⃣ Book
+- Xiaobo Zhou, Suxin Ge, **Jiancheng Chi**, Tie Qiu. Industrial Edge Computing: Architecture, Optimization and Applications. Springer Nature, 2024.
 
 ##  &nbsp;&nbsp; 5️⃣ Working Manuscript
 - **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering (TNSE). 2024. (JCRQ1, IF=6.6)
