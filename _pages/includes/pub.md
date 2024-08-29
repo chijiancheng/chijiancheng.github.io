@@ -1,7 +1,7 @@
 
 # 📚 Publications 
 ##  &nbsp;&nbsp; 1️⃣ Journal Paper
-- **[COMST, JCR Q1, IF=35.6, SCI&ESI High Cited]** Tie Qiu, **Jiancheng Chi**, Xiaobo Zhou, Zhaolong Ning, Mohammed Atiquzzaman, Dapeng Oliver Wu. Edge Computing in Industrial Internet of Things: Architecture, Advances and Challenges. IEEE Communications Surveys and Tutorials, 2020, 22(4): 2462-2488.
+- **</font><font color=red>[COMST, JCR Q1, IF=35.6, SCI&ESI High Cited]</font>** Tie Qiu, **Jiancheng Chi**, Xiaobo Zhou, Zhaolong Ning, Mohammed Atiquzzaman, Dapeng Oliver Wu. Edge Computing in Industrial Internet of Things: Architecture, Advances and Challenges. IEEE Communications Surveys and Tutorials, 2020, 22(4): 2462-2488.
 - **[TMC, CCF A]** **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Yuto Lim, Tie Qiu. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT, IEEE Transactions on Mobile Computing, 2024. 
 - **[TMC, CCF A]** **Jiancheng Chi**, Tie Qiu, Fu Xiao, Xiaobo Zhou. ATOM: Adaptive Task Offloading with Two-stage Hybrid Matching in MEC-enabled Induistrial IoT, IEEE Transactions on Mobile Computing, 2023. 
 - **[NET, JCR Q1]** **Jiancheng Chi**, Tie Qiu, et al. How Matching Theory Enables Multi-access Edge Computing Adaptive Task Scheduling in IIoT, IEEE Network, 2022. (JCRQ1，IF=9.3)
