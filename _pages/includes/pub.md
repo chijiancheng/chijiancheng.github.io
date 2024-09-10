@@ -23,7 +23,7 @@
 ##  &nbsp;&nbsp; 5️⃣ Working Manuscript
 - <span style="color: red; font-weight: bold;">[TNSE, JCR Q1]</span>  **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu and C. L. Philip Chen. Enhancing Efficiency and Adaptability of Task Offloading by Broad Learning System in IIoT. IEEE Transactions on Network Science and Engineering. 2024. (JCRQ1, IF=6.6)
 - <span style="color: red; font-weight: bold;">[INFOCOM, CCF A]</span>  **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu. Task Offloading Scheme Based on Semi-supervised Reservoir Computing in IIoT. INFOCOM, 2024.
-- **池建成**, 基于移动边缘计算的工业物联网任务卸载方案研究, 天津大学博士学位论文, 2024.
+- **池建成**, 工业边缘计算自适应任务卸载方案研究, 天津大学博士学位论文, 2024.
 
 ##  &nbsp;&nbsp; 6️⃣ Patent
 ### &nbsp;&nbsp;&nbsp;&nbsp; Authorized
