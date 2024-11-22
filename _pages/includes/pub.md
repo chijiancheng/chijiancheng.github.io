@@ -17,6 +17,7 @@
 
 ##  &nbsp;&nbsp; 3️⃣ Thesis
 - **池建成**, 基于区块链的工业物联网数据共享机制研究, 天津大学硕士学位论文, 2020.
+- **池建成**, 工业边缘计算自适应任务卸载机制研究, 天津大学博士学位论文, 2024.
 
 ##  &nbsp;&nbsp; 4️⃣ Book
 - Xiaobo Zhou, Suxin Ge, **Jiancheng Chi**, Tie Qiu. Industrial Edge Computing: Architecture, Optimization and Applications. Springer Nature, 2024.
@@ -25,7 +26,7 @@
 
 - <span style="color: red; font-weight: bold;">[INFOCOM, CCF A]</span>  **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu. Task Offloading Scheme Based on Semi-supervised Reservoir Computing in IIoT. INFOCOM, 2024.
 - <span style="color: red; font-weight: bold;">[COMST, JCR Q1]</span> **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, et al. Artificial Intelligence-Empowered Industrial Edge Computing: A Survey and Future Perspectives, 2025.
-- **池建成**, 工业边缘计算自适应任务卸载机制研究, 天津大学博士学位论文, 2024.
+
 
 ##  &nbsp;&nbsp; 6️⃣ Patent
 ### &nbsp;&nbsp;&nbsp;&nbsp; Authorized
