@@ -1,4 +1,5 @@
 # 🔥 News
+- *2024.12.01*: 🎉I finished my Ph.D. Thesis Defense！
 - *2024.11*: 🎉 My Google Scholar citations have exceeded 800！
 - *2024.10*: 🎉 One paper is accepted by JCR-Q1 top journal IEEE Transactions on Network Science and Engineering (TNSE)！
 - *2024.08*: 🎉 One paper is accepted by CCF-A and JCR-Q1 top journal IEEE Transactions on Mobile Computing (TMC)！
