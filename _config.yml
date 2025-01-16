@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Jiancheng Chi 池建成"
-description              : "Ph.D Student at SmarIoT Lab, College of Intelligence and Computing."
+description              : "School of Software"
 repository               : "chijiancheng/chijiancheng.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -24,9 +24,9 @@ author:
   english_name             : "Jiancheng(Janson) Chi"
   chinese_name             : "池建成"
   avatar           : "images/Chi.jpg"
-  bio              : "SmartIoT Lab"
-  location         : "Tianjin, China"
-  employer         : "Tianjin University"
+  bio              : "Assistant Professor"
+  location         : "Dalian, China"
+  employer         : "Dalian University of Technology"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=IZtkGZ0AAAAJ&hl=en"
   email            : "chijiancheng@tju.edu.cn"
