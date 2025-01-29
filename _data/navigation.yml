@@ -5,8 +5,8 @@ main:
   - title: "Biography"
     url: "/#--biography"
 
-  - title: "Educations"
-    url: "/#-educations"
+  - title: "Educations and Works"
+    url: "/#-educations-and-Works"
 
   - title: "Research Interests"
     url: "/#-research-interests"
