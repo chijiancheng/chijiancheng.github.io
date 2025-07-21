@@ -20,3 +20,5 @@
 - 4th IEEE International Conference on Smart Internet of Things (SmartIoT 2020)
 - 5th IEEE International Conference on Smart Internet of Things (SmartIoT 2021)
 - IEEE ComSoc School Series Tianjin Event 2023
+- Demo/Poster Chair, 9th IEEE International Conference on Smart Internet of Things (SmartIoT 2025)
+- CCF Symposium on Computer Network Teaching and Network Engineering Discipline Construction (CNETCNED 2025)
