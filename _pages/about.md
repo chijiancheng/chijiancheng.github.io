@@ -23,3 +23,5 @@ redirect_from:
 {% include_relative includes/activities.md %}
 
 {% include_relative includes/news.md %}
+
+{% include_relative includes/project.md %}
