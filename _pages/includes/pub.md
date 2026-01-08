@@ -1,6 +1,8 @@
 
 # 📚 Publications 
 ##  &nbsp;&nbsp; 1️⃣ Journal Paper
+- <span style="color: red; font-weight: bold;">[TMC, CCF A]</span> **Jiancheng Chi**, Ning Chen, Songwei Zhang, Xiaobo Zhou, Lei Wang, Tie Qiu. Adaptive Task Offloading Scheme in Industrial IoT Based on Semi-supervised Reservoir Computing, IEEE Transactions on Mobile Computing, 2025. 
+- <span style="color: red; font-weight: bold;">[TMC, CCF A]</span> Tahreem Iqbal, **Jiancheng Chi**, Lei Wang, Waleed Younas, Muhammad Ali Lodhi, Tie Qiu. AquaLink: A QR Code-Driven Optical Camera Communication Framework for Underwater Network Applications, IEEE Transactions on Mobile Computing, 2025. 
 - <span style="color: red; font-weight: bold;">[COMST, JCR Q1, IF=35.6, SCI&ESI High Cited]</span> Tie Qiu, **Jiancheng Chi**, Xiaobo Zhou, Zhaolong Ning, Mohammed Atiquzzaman, Dapeng Oliver Wu. Edge Computing in Industrial Internet of Things: Architecture, Advances and Challenges. IEEE Communications Surveys and Tutorials, 2020, 22(4): 2462-2488.
 - <span style="color: red; font-weight: bold;">[TMC, CCF A]</span> **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Yuto Lim, Tie Qiu. Task Offloading via Prioritized Experience-based Double Dueling DQN in Edge-assisted IIoT, IEEE Transactions on Mobile Computing, 2024. 
 - <span style="color: red; font-weight: bold;">[TMC, CCF A]</span>  **Jiancheng Chi**, Tie Qiu, Fu Xiao, Xiaobo Zhou. ATOM: Adaptive Task Offloading with Two-stage Hybrid Matching in MEC-enabled Induistrial IoT, IEEE Transactions on Mobile Computing, 2023.
