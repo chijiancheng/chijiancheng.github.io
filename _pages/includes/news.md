@@ -1,4 +1,5 @@
 # 🔥 News
+- *2025.08.28*: 🎉I got the approval of the National Natural Science Foundation of China for Young Scholars Program C！
 - *2024.12.01*: 🎉I finished my Ph.D. Thesis Defense！
 - *2024.11*: 🎉 My Google Scholar citations have exceeded 800！
 - *2024.10*: 🎉 One paper is accepted by JCR-Q1 top journal IEEE Transactions on Network Science and Engineering (TNSE)！
