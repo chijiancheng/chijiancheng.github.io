@@ -10,11 +10,14 @@
 - IEEE Internet of Things Journal
 - International Journal of Robotics Research
 - Journal of Cloud Computing
+- IET Communications
 
 ### &nbsp;&nbsp;&nbsp;&nbsp; Conference
 - IEEE International Conference on Wireless Artificial Intelligent Computing Systems and Applications (WASA)
 - IEEE International Conference on Computer Supported Cooperative Work in Design (CSCWD)
 - IEEE International Conference on Smart Internet of Things (SmartIoT)
+- IEEE International Conference on Mobility, Sensing and Networking (MSN)
+- IEEE International Conference on Communication Technology (ICCT)
 
 ##  &nbsp;&nbsp; 2️⃣ Committee Members
 ### &nbsp;&nbsp;&nbsp;&nbsp; Journal
