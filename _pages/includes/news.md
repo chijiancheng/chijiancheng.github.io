@@ -1,5 +1,5 @@
 # 🔥 News
-- *2026.08*: 🎉 One paper is certificated Best Paper Award by IEEE International Conference SmartIoT 2026！
+- *2026.08*: 🎉 One paper is certificated as Best Paper Award by IEEE International Conference SmartIoT 2026！
 - *2026.07*: 🎉 One paper is accepted by CCF-A top conference - Ubicomp 2026！
 - *2026.04*: 🎉 One paper is accepted by CCF-B top conference - The IEEE/ACM International Symposium on Quality of Service (IWQoS 2026)！
 - *2026.01*: 🎉 One paper is accepted by CCF-B and JCR-Q1 top journal - ACM Transactions on Sensor Networks (TOSN)！
