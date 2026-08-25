@@ -1,7 +1,5 @@
 # 💗 Research Interests
 - Industrial Internet of Things
-- Industrial Big Data
-- Edge Computing
-- Task Offloading
-- Blockchain
-- Machine Learning
+- Industrial Large Model
+- Vision-Language-Action (VLA) Models
+- Edge Intelligence
