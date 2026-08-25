@@ -11,3 +11,5 @@
 - **2022** CSC Government-sponsored Study Abroad Scholarship
 - **2023** Advanced Individual in Science and Technology Innovation of Tianjin University
 - **2023** Advanced Individual in International Communication of Tianjin University
+- **2025** ACM China Outstanding Doctoral Dissertation Award (Dalian)
+- **2026** SmartIoT Best Paper Award
