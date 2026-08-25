@@ -1,6 +1,10 @@
 
 # 📚 Publications 
 ##  &nbsp;&nbsp; 1️⃣ Journal Paper
+- <span style="color: red; font-weight: bold;">[Ubicomp 2026, CCF A] Tahreem Iqbal, **Jiancheng Chi**, Lei Wang, Chi Lin, Waleed Younas, Tutomu Murase, Jie Xiong. AquaFlicker: Visible Flicker for Motion-Resilient Underwater Optical Communication, ACM International Conference on Ubiquitous Computing, 2026.
+- <span style="color: red; font-weight: bold;">[IWQoS 2026, CCF B] Shengjie Li, **Jiancheng Chi**, Pengfei Wang, Lei Wang, Xiaobo Zhou, Ning Chen, Tie Qiu. Adaptive Multi-Path Mamba Knowledge Distillation Framework for Industrial Defect Detection, IEEE/ACM International Symposium on Quality of Service, 2026.
+- <span style="color: red; font-weight: bold;">[TMC, CCF A] **Jiancheng Chi**, Ning Chen, Songwei Zhang, Xiaobo Zhou, Lei Wang, Tie Qiu. Adaptive Task Offloading Scheme in Industrial IoT Based on Semi-supervised Reservoir Computing, IEEE Transactions on Mobile Computing, 2025.
+- <span style="color: red; font-weight: bold;">[TMC, CCF A] Tahreem Iqbal, **Jiancheng Chi**, Lei Wang, Waleed Younas, Muhammad Ali Lodhi, Tie Qiu. AquaLink: A QR Code-Driven Optical Camera Communication Framework for Underwater Network Applications, IEEE Transactions on Mobile Computing, 2025.
 - <span style="color: red; font-weight: bold;">[TMC, CCF A]</span> **Jiancheng Chi**, Ning Chen, Songwei Zhang, Xiaobo Zhou, Lei Wang, Tie Qiu. Adaptive Task Offloading Scheme in Industrial IoT Based on Semi-supervised Reservoir Computing, IEEE Transactions on Mobile Computing, 2025. 
 - <span style="color: red; font-weight: bold;">[TMC, CCF A]</span> Tahreem Iqbal, **Jiancheng Chi**, Lei Wang, Waleed Younas, Muhammad Ali Lodhi, Tie Qiu. AquaLink: A QR Code-Driven Optical Camera Communication Framework for Underwater Network Applications, IEEE Transactions on Mobile Computing, 2025.
 - <span style="color: red; font-weight: bold;">[中科院1区]</span> LU Xinxin, ZHOU Zhiyi, **CHI Jiancheng**, WANG Lei, CHEN Yunbo, HAN Xin, CHEN Ning. OT-ADG: Optimal-transport-driven adaptive data generation for WiFi sensing in airborne mobile networks, Chinese Journal of Aeronautics, 2025.
