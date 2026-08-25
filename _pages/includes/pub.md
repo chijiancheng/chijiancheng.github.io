@@ -30,12 +30,6 @@
 ##  &nbsp;&nbsp; 4️⃣ Book
 - Xiaobo Zhou, Suxin Ge, **Jiancheng Chi**, Tie Qiu. Industrial Edge Computing: Architecture, Optimization and Applications. Springer Nature, 2024.
 
-##  &nbsp;&nbsp; 5️⃣ Working Manuscript
-
-- <span style="color: red; font-weight: bold;">[INFOCOM, CCF A]</span>  **Jiancheng Chi**, Xiaobo Zhou, Fu Xiao, Tie Qiu. Task Offloading Scheme Based on Semi-supervised Reservoir Computing in IIoT. INFOCOM, 2024.
-- <span style="color: red; font-weight: bold;">[COMST, JCR Q1]</span> **Jiancheng Chi**, Tie Qiu, Xiaobo Zhou, et al. Artificial Intelligence-Empowered Industrial Edge Computing: A Survey and Future Perspectives, 2025.
-
-
 ##  &nbsp;&nbsp; 6️⃣ Patent
 ### &nbsp;&nbsp;&nbsp;&nbsp; Authorized
 - 邱铁 , 姜笑昱 , **池建成** , 陈宁.  一种基于工业网关的工控协议识别与解析方法，授权公告日：2022.8.9. 公告号: CN112788015B.
