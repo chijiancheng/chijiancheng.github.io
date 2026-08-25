@@ -1,4 +1,7 @@
 # 🔥 News
+- *2026.07*: 🎉 One paper is accepted by CCF-A top conference - Ubicomp 2026！
+- *2026.04*: 🎉 One paper is accepted by CCF-B top conference - The IEEE/ACM International Symposium on Quality of Service (IWQoS 2026)！
+- *2026.01*: 🎉 One paper is accepted by CCF-B and JCR-Q1 top journal - ACM Transactions on Sensor Networks (TOSN)！
 - *2025.12*: 🎉 Two paper are accepted by CCF-A and JCR-Q1 top journal - IEEE Transactions on Mobile Computing (TMC)！
 - *2025.11*: 🎉 One paper is accepted by JCR-Q1 top Journal - Journal of Computer and System Sciences (JCSS)！
 - *2025.11*: 🎉 One paper is accepted by CCF-B top journal - Chinese Journal of Aeronautics (CJA)！
