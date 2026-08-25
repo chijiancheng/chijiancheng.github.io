@@ -3,6 +3,7 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp; Journal
 - IEEE Transactions on Mobile Computing
 - IEEE/ACM Transactions on Networking
+- IEEE Transactions on Parallel and Distributed Systems
 - IEEE Wireless Communications Magazine
 - IEEE Transactions on Network Science and Engineering
 - IEEE Transactions on Industrial Informatics
@@ -16,6 +17,9 @@
 - IEEE International Conference on Smart Internet of Things (SmartIoT)
 
 ##  &nbsp;&nbsp; 2️⃣ Committee Members
+### &nbsp;&nbsp;&nbsp;&nbsp; Journal
+- Editorial Member, Scientific Reports
+
 ### &nbsp;&nbsp;&nbsp;&nbsp; Conference
 - 4th IEEE International Conference on Smart Internet of Things (SmartIoT 2020)
 - 5th IEEE International Conference on Smart Internet of Things (SmartIoT 2021)
