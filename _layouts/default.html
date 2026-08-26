@@ -3,56 +3,161 @@ layout: compress
 ---
 
 <!doctype html>
+
 <html lang="en" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
+
+<head>
+
+  {% include head.html %}
+  {% include head/custom.html %}
+
+</head>
 
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-372S7EKPE3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Google tag (gtag.js) -->
 
-  gtag('config', 'G-372S7EKPE3');
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-372S7EKPE3">
 </script>
 
-  
-  <body>
+<script>
+  window.dataLayer =
+    window.dataLayer || [];
 
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
 
-    <div id="main" role="main">
-      {% include sidebar.html %}
-    
-      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            {{ content }}
-          </section>
-        </div>
-      </article>
-    </div>
+  gtag('js', new Date());
 
-    {% include scripts.html %}
+  gtag(
+    'config',
+    'G-372S7EKPE3'
+  );
+</script>
 
-    
 
-    <footer style="background-color: #f2f2f2; padding: 10px 0;">
+<body>
+
+  {% include browser-upgrade.html %}
+
+
+  <!-- ============================================
+       Premium visual background
+       ============================================ -->
+
+  <div
+    class="premium-ambient"
+    aria-hidden="true">
+  </div>
+
+  <div
+    class="premium-spotlight"
+    aria-hidden="true">
+  </div>
+
+
+  <!-- ============================================
+       Navigation
+       ============================================ -->
+
+  {% include masthead.html %}
+
+
+  <!-- ============================================
+       Main
+       ============================================ -->
+
+  <div id="main" role="main">
+
+    {% include sidebar.html %}
+
+
+    <article
+      class="page"
+      itemscope
+      itemtype="http://schema.org/CreativeWork">
+
+      {% if page.title %}
+
+      <meta
+        itemprop="headline"
+        content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+
+      {% endif %}
+
+
+      <div class="page__inner-wrap">
+
+        <section
+          class="page__content"
+          itemprop="text">
+
+          {{ content }}
+
+        </section>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- ============================================
+       Theme scripts
+       ============================================ -->
+
+  {% include scripts.html %}
+
+
+  <!-- ============================================
+       Premium effects
+       ============================================ -->
+
+  <script
+    src="{{ '/assets/js/premium.js' | relative_url }}"
+    defer>
+  </script>
+
+
+  <!-- ============================================
+       Footer
+       ============================================ -->
+
+  <footer
+    style="
+      background-color: #f2f2f2;
+      padding: 10px 0;
+    ">
+
     <div class="row">
-        <div class="col-lg-12">
-            <p align="center">
-                You are the <script type="text/javascript" src="//counter.websiteout.com/js/7/0/0/0"></script>th visitor. © Copyright 2024 chijiancheng – All rights reserved.
-            </p>
-        </div>
+
+      <div class="col-lg-12">
+
+        <p align="center">
+
+          You are the
+
+          <script
+            type="text/javascript"
+            src="//counter.websiteout.com/js/7/0/0/0">
+          </script>
+
+          th visitor.
+
+          © Copyright 2024 chijiancheng
+          – All rights reserved.
+
+        </p>
+
+      </div>
+
     </div>
-    </footer>
 
+  </footer>
 
-  </body>
+</body>
+
 </html>
