@@ -1,9 +1,11 @@
 name: Update Google Scholar Citations
 
 on:
+  # 每天 UTC 08:00 自动更新
   schedule:
     - cron: "0 8 * * *"
 
+  # 支持手动运行
   workflow_dispatch:
 
 permissions:
@@ -14,24 +16,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install requests
-        run: pip install requests
+      - name: Install dependency
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
-      - name: Get Google Scholar citations
+      - name: Fetch Google Scholar citations
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: |
           cd google_scholar_crawler
           python main.py
+
+      - name: Verify generated file
+        run: |
+          test -f google_scholar_crawler/results/gs_data_shieldsio.json
+          cat google_scholar_crawler/results/gs_data_shieldsio.json
 
       - name: Publish citation data
         run: |
@@ -46,9 +55,10 @@ jobs:
           git checkout -b google-scholar-stats
 
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .
+          git add gs_data_shieldsio.json
           git commit -m "Update Google Scholar citations"
 
           git remote add origin \
