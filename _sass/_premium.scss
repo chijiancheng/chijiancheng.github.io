@@ -1,7 +1,7 @@
 /* =========================================================
    Jiancheng Chi Academic Homepage
    Premium Visual Enhancement
-   Particle + Ripple Edition
+   Particle + Soft Ripple Edition
    ========================================================= */
 
 
@@ -735,14 +735,14 @@ img[src*="gs_data_shieldsio"]:hover {
 
 
 /* =========================================================
-   15. CLICK RIPPLE EFFECT
+   15. SOFT CLICK RIPPLE
    ========================================================= */
 
 .premium-click-ripple {
   position: fixed;
 
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
 
   left: 0;
   top: 0;
@@ -754,72 +754,77 @@ img[src*="gs_data_shieldsio"]:hover {
   pointer-events: none;
 
   border:
-    1.5px solid
-    rgba(56, 189, 248, 0.62);
+    1px solid
+    rgba(56, 189, 248, 0.30);
 
-  box-shadow:
-    0 0 0 1px
-      rgba(37, 99, 235, 0.10),
-
-    0 0 18px
-      rgba(56, 189, 248, 0.18);
+  box-shadow: none;
 
   transform:
     translate(-50%, -50%)
-    scale(0.15);
+    scale(0.30);
 
-  opacity: 0.88;
+  opacity: 0;
 
   animation:
     premiumRippleExpand
-    760ms
-    cubic-bezier(.16, .72, .30, 1)
+    900ms
+    cubic-bezier(.18, .72, .28, 1)
     forwards;
 }
 
 
-/* Second ring */
+/* Secondary delayed wave */
 
 .premium-click-ripple::after {
   content: "";
 
   position: absolute;
 
-  inset: -5px;
+  inset: -4px;
 
   border-radius: 50%;
 
   border:
     1px solid
-    rgba(99, 102, 241, 0.28);
+    rgba(99, 102, 241, 0.16);
 
-  opacity: 0.70;
+  opacity: 0;
 
   animation:
     premiumRippleInner
-    760ms
+    1050ms
     ease-out
+    90ms
     forwards;
 }
 
 
 @keyframes premiumRippleExpand {
+
   0% {
     transform:
       translate(-50%, -50%)
-      scale(0.15);
+      scale(0.30);
 
-    opacity: 0.88;
+    opacity: 0;
   }
 
-  45% {
-    opacity: 0.52;
+  12% {
+    opacity: 0.28;
+  }
+
+  42% {
+    opacity: 0.18;
+  }
+
+  72% {
+    opacity: 0.08;
   }
 
   100% {
     transform:
       translate(-50%, -50%)
-      scale(7.5);
+      scale(12);
 
     opacity: 0;
   }
@@ -827,16 +832,25 @@ img[src*="gs_data_shieldsio"]:hover {
 
 
 @keyframes premiumRippleInner {
+
   0% {
     transform:
       scale(0.45);
 
-    opacity: 0.60;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.18;
+  }
+
+  55% {
+    opacity: 0.09;
   }
 
   100% {
     transform:
-      scale(1.65);
+      scale(7);
 
     opacity: 0;
   }
@@ -844,14 +858,14 @@ img[src*="gs_data_shieldsio"]:hover {
 
 
 /* =========================================================
-   16. CLICK SPARK PARTICLES
+   16. SUBTLE CLICK SPARKS
    ========================================================= */
 
 .premium-click-spark {
   position: fixed;
 
-  width: 3px;
-  height: 3px;
+  width: 2px;
+  height: 2px;
 
   left: 0;
   top: 0;
@@ -863,31 +877,32 @@ img[src*="gs_data_shieldsio"]:hover {
   pointer-events: none;
 
   background:
-    rgba(56, 189, 248, 0.88);
+    rgba(56, 189, 248, 0.42);
 
   box-shadow:
-    0 0 6px
-    rgba(56, 189, 248, 0.48);
+    0 0 4px
+    rgba(56, 189, 248, 0.20);
 
   transform:
     translate(-50%, -50%);
 
   animation:
     premiumSparkMove
-    650ms
+    620ms
     ease-out
     forwards;
 }
 
 
 @keyframes premiumSparkMove {
+
   0% {
     transform:
       translate(-50%, -50%)
       translate(0, 0)
       scale(1);
 
-    opacity: 0.88;
+    opacity: 0.45;
   }
 
   100% {
