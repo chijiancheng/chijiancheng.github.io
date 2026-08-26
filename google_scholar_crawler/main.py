@@ -1,38 +1,40 @@
 import os
 import json
+import sys
 import requests
 
-scholar_id = os.environ["GOOGLE_SCHOLAR_ID"]
-api_key = os.environ["SERPAPI_API_KEY"]
+SCHOLAR_ID = os.environ["GOOGLE_SCHOLAR_ID"]
+SERPAPI_KEY = os.environ["SERPAPI_API_KEY"]
+
+url = "https://serpapi.com/search.json"
 
 params = {
     "engine": "google_scholar_author",
-    "author_id": scholar_id,
-    "api_key": api_key,
+    "author_id": SCHOLAR_ID,
+    "api_key": SERPAPI_KEY,
     "hl": "en"
 }
 
-response = requests.get(
-    "https://serpapi.com/search.json",
-    params=params,
-    timeout=30
-)
+try:
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+    data = response.json()
 
-response.raise_for_status()
-data = response.json()
+    if "error" in data:
+        raise RuntimeError(data["error"])
 
-# 如果 SerpAPI 返回错误，直接把错误打印出来
-if "error" in data:
-    raise RuntimeError(f"SerpAPI error: {data['error']}")
+    if "cited_by" not in data:
+        raise RuntimeError(
+            "SerpAPI returned successfully but citation data was not found."
+        )
 
-# 如果没有 cited_by，打印完整响应，方便定位
-if "cited_by" not in data:
-    print(json.dumps(data, indent=2, ensure_ascii=False))
-    raise RuntimeError("SerpAPI response does not contain cited_by")
+    citations = data["cited_by"]["table"][0]["citations"]["all"]
 
-citations = data["cited_by"]["table"][0]["citations"]["all"]
+except Exception as e:
+    print(f"Failed to update Google Scholar citations: {e}")
+    sys.exit(1)
 
-print(f"Total citations: {citations}")
+print(f"Google Scholar citations: {citations}")
 
 os.makedirs("results", exist_ok=True)
 
@@ -42,9 +44,14 @@ shield_data = {
     "message": str(citations)
 }
 
-with open(
-    "results/gs_data_shieldsio.json",
-    "w",
-    encoding="utf-8"
-) as f:
-    json.dump(shield_data, f, ensure_ascii=False, indent=2)
+output = "results/gs_data_shieldsio.json"
+
+with open(output, "w", encoding="utf-8") as f:
+    json.dump(
+        shield_data,
+        f,
+        ensure_ascii=False,
+        indent=2
+    )
+
+print(f"Successfully generated {output}")
