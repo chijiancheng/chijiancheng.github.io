@@ -1,24 +1,36 @@
-from scholarly import scholarly
-import jsonpickle
-import json
-from datetime import datetime
 import os
+import json
+import requests
 
-author: dict = scholarly.search_author_id(os.environ['GOOGLE_SCHOLAR_ID'])
-scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
-name = author['name']
-author['updated'] = str(datetime.now())
-author['publications'] = {v['author_pub_id']:v for v in author['publications']}
-print(json.dumps(author, indent=2))
-os.makedirs('results', exist_ok=True)
-with open(f'results/gs_data.json', 'w') as outfile:
-    json.dump(author, outfile, ensure_ascii=False)
+scholar_id = os.environ["GOOGLE_SCHOLAR_ID"]
+api_key = os.environ["SERPAPI_API_KEY"]
 
-shieldio_data = {
-  "schemaVersion": 1,
-  "label": "citations",
-  "message": f"{author['citedby']}",
+url = "https://serpapi.com/search.json"
+
+params = {
+    "engine": "google_scholar_author",
+    "author_id": scholar_id,
+    "api_key": api_key,
+    "hl": "en"
 }
 
-with open(f'results/gs_data_shieldsio.json', 'w') as outfile:
-    json.dump(shieldio_data, outfile, ensure_ascii=False)
+data = requests.get(url, params=params, timeout=30).json()
+
+citations = data["cited_by"]["table"][0]["citations"]["all"]
+
+print(f"Total citations: {citations}")
+
+os.makedirs("results", exist_ok=True)
+
+shield_data = {
+    "schemaVersion": 1,
+    "label": "citations",
+    "message": str(citations)
+}
+
+with open(
+    "results/gs_data_shieldsio.json",
+    "w",
+    encoding="utf-8"
+) as f:
+    json.dump(shield_data, f, ensure_ascii=False, indent=2)
