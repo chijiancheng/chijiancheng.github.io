@@ -9,8 +9,8 @@
  * 4. Mouse particle connections
  * 5. Mouse spotlight
  * 6. Mouse pulse
- * 7. Click water ripple
- * 8. Click spark burst
+ * 7. Soft click water ripple
+ * 8. Subtle click sparks
  * 9. Scroll reveal
  * 10. Sticky navigation enhancement
  */
@@ -957,7 +957,7 @@
 
 
   /* =======================================================
-     3. Click ripple + spark burst
+     3. Soft click ripple + subtle sparks
      ======================================================= */
 
   if (!reducedMotion) {
@@ -997,7 +997,7 @@
 
 
         /* -----------------------------------------------
-           Main ripple
+           Main soft ripple
            ----------------------------------------------- */
 
         const ripple =
@@ -1037,10 +1037,10 @@
 
 
         /* -----------------------------------------------
-           Spark particles
+           Very subtle spark particles
            ----------------------------------------------- */
 
-        const sparkCount = 7;
+        const sparkCount = 5;
 
 
         for (
@@ -1075,13 +1075,13 @@
             ) /
             sparkCount +
             Math.random() *
-            0.35;
+            0.30;
 
 
           const distance =
-            18 +
+            14 +
             Math.random() *
-            22;
+            16;
 
 
           spark.style.setProperty(
