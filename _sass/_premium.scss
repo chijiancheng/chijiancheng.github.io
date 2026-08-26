@@ -1,7 +1,7 @@
 /* =========================================================
    Jiancheng Chi Academic Homepage
    Premium Visual Enhancement
-   Particle + Interactive Edition
+   Particle + Ripple Edition
    ========================================================= */
 
 
@@ -159,7 +159,6 @@ body::before {
 }
 
 @keyframes premiumAmbientFloat {
-
   0%,
   100% {
     transform:
@@ -172,7 +171,6 @@ body::before {
       translate3d(0, 45px, 0)
       scale(1.08);
   }
-
 }
 
 
@@ -234,7 +232,6 @@ body::before {
 
 #main {
   position: relative;
-
   z-index: 2;
 }
 
@@ -244,13 +241,6 @@ body::before {
 .sidebar {
   position: relative;
 }
-
-
-/*
- * Important:
- * keep content backgrounds transparent so particles
- * remain visible behind the page.
- */
 
 .page,
 .page__inner-wrap,
@@ -300,8 +290,7 @@ body::before {
 }
 
 .greedy-nav {
-  background:
-    transparent !important;
+  background: transparent !important;
 }
 
 .greedy-nav a,
@@ -326,16 +315,6 @@ body::before {
 /* =========================================================
    8. AVATAR
    ========================================================= */
-
-/*
- * Your HTML structure:
- *
- * <div class="author__avatar">
- *   <img class="author__avatar">
- * </div>
- *
- * Keep portrait, white border and glow ring concentric.
- */
 
 div.author__avatar {
   position: relative;
@@ -388,8 +367,7 @@ div.author__avatar > img.author__avatar {
     4px solid
     rgba(255, 255, 255, 0.98);
 
-  transform:
-    none !important;
+  transform: none !important;
 
   box-shadow:
     0 13px 34px
@@ -402,7 +380,7 @@ div.author__avatar > img.author__avatar {
 }
 
 
-/* Rotating blue/cyan/purple outer ring */
+/* Rotating outer ring */
 
 div.author__avatar::before {
   content: "";
@@ -443,16 +421,13 @@ div.author__avatar::before {
       content-box,
     linear-gradient(#000 0 0);
 
-  -webkit-mask-composite:
-    xor;
+  -webkit-mask-composite: xor;
 
-  mask-composite:
-    exclude;
+  mask-composite: exclude;
 
   opacity: 0.76;
 
-  transform-origin:
-    center center;
+  transform-origin: center center;
 
   animation:
     premiumAvatarRotate
@@ -460,8 +435,7 @@ div.author__avatar::before {
     linear
     infinite;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 
@@ -481,11 +455,8 @@ div.author__avatar::after {
   background: transparent;
 
   box-shadow:
-    0 0 22px
-    rgba(96, 165, 250, 0.16),
-
-    0 0 42px
-    rgba(56, 189, 248, 0.08);
+    0 0 22px rgba(96, 165, 250, 0.16),
+    0 0 42px rgba(56, 189, 248, 0.08);
 
   pointer-events: none;
 }
@@ -505,7 +476,6 @@ div.author__avatar:hover
 
 
 @keyframes premiumAvatarRotate {
-
   from {
     transform:
       rotate(0deg);
@@ -515,7 +485,6 @@ div.author__avatar:hover
     transform:
       rotate(360deg);
   }
-
 }
 
 
@@ -576,11 +545,9 @@ div.author__avatar:hover
       var(--premium-cyan)
     );
 
-  transform-origin:
-    left;
+  transform-origin: left;
 
-  transform:
-    scaleX(0);
+  transform: scaleX(0);
 
   opacity: 0;
 
@@ -768,7 +735,177 @@ img[src*="gs_data_shieldsio"]:hover {
 
 
 /* =========================================================
-   15. FOOTER
+   15. CLICK RIPPLE EFFECT
+   ========================================================= */
+
+.premium-click-ripple {
+  position: fixed;
+
+  width: 16px;
+  height: 16px;
+
+  left: 0;
+  top: 0;
+
+  z-index: 9999;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  border:
+    1.5px solid
+    rgba(56, 189, 248, 0.62);
+
+  box-shadow:
+    0 0 0 1px
+      rgba(37, 99, 235, 0.10),
+
+    0 0 18px
+      rgba(56, 189, 248, 0.18);
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.15);
+
+  opacity: 0.88;
+
+  animation:
+    premiumRippleExpand
+    760ms
+    cubic-bezier(.16, .72, .30, 1)
+    forwards;
+}
+
+
+/* Second ring */
+
+.premium-click-ripple::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(99, 102, 241, 0.28);
+
+  opacity: 0.70;
+
+  animation:
+    premiumRippleInner
+    760ms
+    ease-out
+    forwards;
+}
+
+
+@keyframes premiumRippleExpand {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.15);
+
+    opacity: 0.88;
+  }
+
+  45% {
+    opacity: 0.52;
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(7.5);
+
+    opacity: 0;
+  }
+}
+
+
+@keyframes premiumRippleInner {
+  0% {
+    transform:
+      scale(0.45);
+
+    opacity: 0.60;
+  }
+
+  100% {
+    transform:
+      scale(1.65);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   16. CLICK SPARK PARTICLES
+   ========================================================= */
+
+.premium-click-spark {
+  position: fixed;
+
+  width: 3px;
+  height: 3px;
+
+  left: 0;
+  top: 0;
+
+  z-index: 9999;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    rgba(56, 189, 248, 0.88);
+
+  box-shadow:
+    0 0 6px
+    rgba(56, 189, 248, 0.48);
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    premiumSparkMove
+    650ms
+    ease-out
+    forwards;
+}
+
+
+@keyframes premiumSparkMove {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      translate(0, 0)
+      scale(1);
+
+    opacity: 0.88;
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--spark-x),
+        var(--spark-y)
+      )
+      scale(0);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   17. FOOTER
    ========================================================= */
 
 footer {
@@ -792,7 +929,7 @@ footer {
 
 
 /* =========================================================
-   16. TEXT SELECTION
+   18. TEXT SELECTION
    ========================================================= */
 
 ::selection {
@@ -805,7 +942,7 @@ footer {
 
 
 /* =========================================================
-   17. SCROLLBAR
+   19. SCROLLBAR
    ========================================================= */
 
 @media (min-width: 800px) {
@@ -844,15 +981,10 @@ footer {
 
 
 /* =========================================================
-   18. MOBILE
+   20. MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
-
-  /*
-   * Disable Canvas particles on mobile for battery
-   * and scrolling performance.
-   */
 
   .premium-particles {
     display: none;
@@ -899,7 +1031,7 @@ footer {
 
 
 /* =========================================================
-   19. REDUCED MOTION
+   21. REDUCED MOTION
    ========================================================= */
 
 @media (
@@ -922,10 +1054,7 @@ footer {
       0.001ms !important;
   }
 
-  .premium-particles {
-    display: none;
-  }
-
+  .premium-particles,
   .premium-spotlight {
     display: none;
   }
@@ -943,6 +1072,11 @@ footer {
   div.author__avatar::before {
     animation:
       none !important;
+  }
+
+  .premium-click-ripple,
+  .premium-click-spark {
+    display: none !important;
   }
 
 }
