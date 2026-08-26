@@ -1,7 +1,7 @@
 /* =========================================================
    Jiancheng Chi Academic Homepage
    Premium Visual Enhancement
-   Final Concentric Avatar Version
+   Final Version
    ========================================================= */
 
 
@@ -275,22 +275,39 @@ body::before {
    ========================================================= */
 
 /*
- * FINAL CONCENTRIC AVATAR DESIGN
+ * IMPORTANT:
  *
- * All circles share the same center:
+ * In your current HTML:
  *
- * 1. Portrait circle
- * 2. White separation ring
- * 3. Rotating gradient ring
+ * <div class="author__avatar">
+ *   <img class="author__avatar">
+ * </div>
  *
- * No translateX / translateY correction is used.
- * No 3D tilt should be applied from JavaScript.
+ * So the selectors below explicitly distinguish:
+ *
+ * div.author__avatar
+ * img.author__avatar
  */
 
-.author__avatar {
+
+/* =========================================================
+   AVATAR OUTER CONTAINER
+   ========================================================= */
+
+div.author__avatar {
   position: relative;
 
-  display: inline-block;
+  display: block;
+
+  width: 100%;
+  max-width: 210px;
+
+  aspect-ratio: 1 / 1;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 50%;
 
   overflow: visible;
 
@@ -302,37 +319,65 @@ body::before {
    PORTRAIT
    ========================================================= */
 
-.author__avatar img {
-  position: relative;
+/*
+ * The image itself is forced into a true circle.
+ *
+ * No translation.
+ * No asymmetric positioning.
+ * No 3D tilt.
+ *
+ * This ensures:
+ *
+ * portrait circle
+ * white border
+ * outer ring
+ *
+ * all share the same center.
+ */
 
-  display: block;
+div.author__avatar > img.author__avatar {
+  position: absolute;
+
+  inset: 0;
 
   z-index: 3;
 
-  width: 100%;
-  height: auto;
+  display: block;
 
-  border-radius: 50%;
+  width: 100% !important;
+  height: 100% !important;
 
-  /*
-   * White ring is directly attached to the portrait.
-   * Because the image itself is centered, this ring is
-   * guaranteed to be concentric with the portrait.
-   */
-  border:
-    4px solid rgba(255, 255, 255, 0.98);
+  max-width: none !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border-radius: 50% !important;
+
+  object-fit: cover;
+  object-position: center center;
 
   box-sizing: border-box;
 
-  transform:
-    scale(1);
+  /*
+   * White separation ring.
+   */
 
-  transform-origin:
-    center center;
+  border:
+    4px solid rgba(255, 255, 255, 0.98);
+
+  /*
+   * Critical:
+   * clip the four corners of the original rectangular image.
+   */
+
+  overflow: hidden;
+
+  transform: none !important;
 
   box-shadow:
     0 13px 34px
-      rgba(15, 23, 42, 0.12);
+    rgba(15, 23, 42, 0.12);
 
   transition:
     transform 0.35s
@@ -342,20 +387,21 @@ body::before {
 
 
 /* =========================================================
-   ROTATING CONCENTRIC OUTER RING
+   ROTATING OUTER RING
    ========================================================= */
 
 /*
- * This pseudo-element is a hollow ring.
- * It shares the exact same center as the avatar container.
+ * The rotating ring is independent from the portrait.
+ *
+ * It is centered on the same div.author__avatar container.
  */
 
-.author__avatar::before {
+div.author__avatar::before {
   content: "";
 
   position: absolute;
 
-  inset: -7px;
+  inset: -8px;
 
   z-index: 1;
 
@@ -367,27 +413,27 @@ body::before {
     conic-gradient(
       from 0deg,
 
-      rgba(96, 165, 250, 0.05) 0deg,
+      rgba(96, 165, 250, 0.04) 0deg,
 
-      rgba(96, 165, 250, 0.48) 40deg,
+      rgba(96, 165, 250, 0.50) 40deg,
 
-      rgba(56, 189, 248, 0.70) 90deg,
+      rgba(56, 189, 248, 0.72) 92deg,
 
-      rgba(99, 102, 241, 0.48) 145deg,
+      rgba(99, 102, 241, 0.50) 145deg,
 
       rgba(99, 102, 241, 0.10) 195deg,
 
       rgba(96, 165, 250, 0.02) 235deg,
 
-      rgba(56, 189, 248, 0.32) 285deg,
+      rgba(56, 189, 248, 0.30) 285deg,
 
-      rgba(96, 165, 250, 0.50) 330deg,
+      rgba(96, 165, 250, 0.52) 330deg,
 
-      rgba(96, 165, 250, 0.05) 360deg
+      rgba(96, 165, 250, 0.04) 360deg
     );
 
   /*
-   * Convert full gradient disc into a hollow ring.
+   * Convert the gradient disc into a hollow ring.
    */
 
   -webkit-mask:
@@ -395,13 +441,13 @@ body::before {
       content-box,
     linear-gradient(#000 0 0);
 
-  -webkit-mask-composite:
-    xor;
+  -webkit-mask-composite: xor;
 
-  mask-composite:
-    exclude;
+  mask-composite: exclude;
 
   opacity: 0.72;
+
+  transform-origin: center center;
 
   animation:
     premiumAvatarRotate
@@ -409,24 +455,20 @@ body::before {
     linear
     infinite;
 
-  transform-origin:
-    center center;
-
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   SOFT CONCENTRIC GLOW
+   SOFT OUTER GLOW
    ========================================================= */
 
-.author__avatar::after {
+div.author__avatar::after {
   content: "";
 
   position: absolute;
 
-  inset: -10px;
+  inset: -11px;
 
   z-index: 0;
 
@@ -435,13 +477,10 @@ body::before {
   background: transparent;
 
   box-shadow:
-    0 0 20px
-      rgba(96, 165, 250, 0.14),
-    0 0 38px
-      rgba(56, 189, 248, 0.08);
+    0 0 20px rgba(96, 165, 250, 0.14),
+    0 0 38px rgba(56, 189, 248, 0.08);
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 
@@ -449,13 +488,14 @@ body::before {
    AVATAR HOVER
    ========================================================= */
 
-.author__avatar:hover img {
+div.author__avatar:hover
+> img.author__avatar {
   transform:
-    scale(1.018);
+    scale(1.015) !important;
 
   box-shadow:
     0 17px 42px
-      rgba(15, 23, 42, 0.15);
+    rgba(15, 23, 42, 0.15);
 }
 
 
@@ -464,7 +504,6 @@ body::before {
    ========================================================= */
 
 @keyframes premiumAvatarRotate {
-
   from {
     transform:
       rotate(0deg);
@@ -474,7 +513,6 @@ body::before {
     transform:
       rotate(360deg);
   }
-
 }
 
 
@@ -541,11 +579,9 @@ body::before {
       var(--premium-cyan)
     );
 
-  transform-origin:
-    left;
+  transform-origin: left;
 
-  transform:
-    scaleX(0);
+  transform: scaleX(0);
 
   opacity: 0;
 
@@ -940,17 +976,18 @@ footer {
       none;
   }
 
-  .author__avatar img {
-    transform:
-      scale(1);
+  div.author__avatar {
+    max-width:
+      190px;
   }
 
-  .author__avatar:hover img {
+  div.author__avatar:hover
+  > img.author__avatar {
     transform:
-      scale(1);
+      none !important;
   }
 
-  .author__avatar::before {
+  div.author__avatar::before {
     inset:
       -6px;
 
@@ -1001,7 +1038,7 @@ footer {
       none;
   }
 
-  .author__avatar::before {
+  div.author__avatar::before {
     animation:
       none !important;
   }
