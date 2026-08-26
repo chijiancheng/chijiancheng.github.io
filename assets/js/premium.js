@@ -9,8 +9,10 @@
  * 4. Mouse particle connections
  * 5. Mouse spotlight
  * 6. Mouse pulse
- * 7. Scroll reveal
- * 8. Sticky navigation enhancement
+ * 7. Click water ripple
+ * 8. Click spark burst
+ * 9. Scroll reveal
+ * 10. Sticky navigation enhancement
  */
 
 (function () {
@@ -179,10 +181,6 @@
       let lastTime = 0;
 
 
-      /*
-       * Configuration
-       */
-
       const CONFIG = {
 
         density: 17500,
@@ -313,10 +311,7 @@
           alpha:
             0.30 +
             Math.random() *
-            0.42,
-
-          baseX: 0,
-          baseY: 0
+            0.42
 
         };
 
@@ -387,10 +382,6 @@
           deltaScale;
 
 
-        /*
-         * Wrap around viewport.
-         */
-
         if (
           particle.x < -10
         ) {
@@ -421,10 +412,6 @@
             -10;
         }
 
-
-        /*
-         * Mouse repulsion.
-         */
 
         if (mouse.active) {
 
@@ -903,8 +890,7 @@
 
           } else {
 
-            lastTime =
-              0;
+            lastTime = 0;
 
 
             if (
@@ -971,7 +957,180 @@
 
 
   /* =======================================================
-     3. Masthead
+     3. Click ripple + spark burst
+     ======================================================= */
+
+  if (!reducedMotion) {
+
+    document.addEventListener(
+      "pointerdown",
+
+      function (event) {
+
+        /*
+         * Only primary click / touch.
+         */
+
+        if (
+          event.button !== undefined &&
+          event.button !== 0
+        ) {
+          return;
+        }
+
+
+        const target =
+          event.target;
+
+
+        /*
+         * Avoid interference with form controls.
+         */
+
+        if (
+          target.closest(
+            "input, textarea, select"
+          )
+        ) {
+          return;
+        }
+
+
+        /* -----------------------------------------------
+           Main ripple
+           ----------------------------------------------- */
+
+        const ripple =
+          document.createElement(
+            "span"
+          );
+
+
+        ripple.className =
+          "premium-click-ripple";
+
+
+        ripple.style.left =
+          event.clientX + "px";
+
+
+        ripple.style.top =
+          event.clientY + "px";
+
+
+        document.body.appendChild(
+          ripple
+        );
+
+
+        ripple.addEventListener(
+          "animationend",
+
+          function () {
+            ripple.remove();
+          },
+
+          {
+            once: true
+          }
+        );
+
+
+        /* -----------------------------------------------
+           Spark particles
+           ----------------------------------------------- */
+
+        const sparkCount = 7;
+
+
+        for (
+          let i = 0;
+          i < sparkCount;
+          i++
+        ) {
+
+          const spark =
+            document.createElement(
+              "span"
+            );
+
+
+          spark.className =
+            "premium-click-spark";
+
+
+          spark.style.left =
+            event.clientX + "px";
+
+
+          spark.style.top =
+            event.clientY + "px";
+
+
+          const angle =
+            (
+              Math.PI *
+              2 *
+              i
+            ) /
+            sparkCount +
+            Math.random() *
+            0.35;
+
+
+          const distance =
+            18 +
+            Math.random() *
+            22;
+
+
+          spark.style.setProperty(
+            "--spark-x",
+            Math.cos(angle) *
+              distance +
+              "px"
+          );
+
+
+          spark.style.setProperty(
+            "--spark-y",
+            Math.sin(angle) *
+              distance +
+              "px"
+          );
+
+
+          document.body.appendChild(
+            spark
+          );
+
+
+          spark.addEventListener(
+            "animationend",
+
+            function () {
+              spark.remove();
+            },
+
+            {
+              once: true
+            }
+          );
+
+        }
+
+      },
+
+      {
+        passive: true
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     4. Masthead
      ======================================================= */
 
   const masthead =
@@ -1020,7 +1179,7 @@
 
 
   /* =======================================================
-     4. Scroll Reveal
+     5. Scroll Reveal
      ======================================================= */
 
   const content =
@@ -1039,10 +1198,6 @@
 
     elements.forEach(
       function (element) {
-
-        /*
-         * Avoid nested animation inside publication cards.
-         */
 
         if (
           element.closest(
@@ -1149,7 +1304,7 @@
 
 
   /* =======================================================
-     5. Loaded State
+     6. Loaded State
      ======================================================= */
 
   window.addEventListener(
