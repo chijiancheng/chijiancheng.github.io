@@ -3,12 +3,14 @@
  * Premium Visual Enhancement
  *
  * Features:
- * - Mouse-follow spotlight
- * - Interactive particle background
- * - Particle connections
- * - Mouse particle interaction
- * - Sticky navigation enhancement
- * - Scroll reveal
+ * 1. Interactive particle field
+ * 2. Particle connections
+ * 3. Mouse repulsion
+ * 4. Mouse particle connections
+ * 5. Mouse spotlight
+ * 6. Mouse pulse
+ * 7. Scroll reveal
+ * 8. Sticky navigation enhancement
  */
 
 (function () {
@@ -31,16 +33,55 @@
 
 
   /* =======================================================
-     1. Mouse-follow spotlight
+     Shared mouse state
+     ======================================================= */
+
+  const mouse = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 3,
+    active: false
+  };
+
+
+  document.addEventListener(
+    "pointermove",
+    function (event) {
+
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+      mouse.active = true;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  document.addEventListener(
+    "pointerleave",
+    function () {
+
+      mouse.active = false;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* =======================================================
+     1. Mouse spotlight
      ======================================================= */
 
   if (!isMobile && !reducedMotion) {
 
     let targetX =
-      window.innerWidth / 2;
+      mouse.x;
 
     let targetY =
-      window.innerHeight / 3;
+      mouse.y;
 
     let currentX =
       targetX;
@@ -51,7 +92,6 @@
 
     document.addEventListener(
       "pointermove",
-
       function (event) {
 
         targetX =
@@ -61,7 +101,6 @@
           event.clientY;
 
       },
-
       {
         passive: true
       }
@@ -71,12 +110,10 @@
     function animateSpotlight() {
 
       currentX +=
-        (targetX - currentX) *
-        0.10;
+        (targetX - currentX) * 0.11;
 
       currentY +=
-        (targetY - currentY) *
-        0.10;
+        (targetY - currentY) * 0.11;
 
 
       document.documentElement
@@ -108,7 +145,7 @@
 
 
   /* =======================================================
-     2. Interactive particle background
+     2. Particle System
      ======================================================= */
 
   if (!isMobile && !reducedMotion) {
@@ -122,69 +159,60 @@
     if (canvas) {
 
       const ctx =
-        canvas.getContext("2d");
+        canvas.getContext(
+          "2d",
+          {
+            alpha: true
+          }
+        );
 
 
       let width = 0;
       let height = 0;
 
-      let dpr =
-        Math.min(
-          window.devicePixelRatio || 1,
-          2
-        );
+      let dpr = 1;
+
+      let particles = [];
+
+      let animationFrame = null;
+
+      let lastTime = 0;
 
 
       /*
-       * Mouse position.
-       */
-
-      const mouse = {
-
-        x: -1000,
-
-        y: -1000,
-
-        active: false
-
-      };
-
-
-      /*
-       * Particle configuration.
-       *
-       * Keep values deliberately conservative.
+       * Configuration
        */
 
       const CONFIG = {
 
-        density: 21000,
+        density: 17500,
 
-        minParticles: 28,
+        minParticles: 40,
 
-        maxParticles: 72,
+        maxParticles: 95,
 
-        minRadius: 0.8,
+        minRadius: 0.9,
 
-        maxRadius: 1.8,
+        maxRadius: 1.9,
 
-        speed: 0.15,
+        baseSpeed: 0.13,
 
-        connectionDistance: 115,
+        connectionDistance: 125,
 
-        mouseRadius: 150,
+        mouseRadius: 175,
 
-        mouseForce: 0.018
+        mouseForce: 0.55,
+
+        mouseConnectionOpacity: 0.24,
+
+        normalConnectionOpacity: 0.15
 
       };
 
 
-      let particles = [];
-
-
-      /* ---------------------------------------------------
-         Resize canvas
-         --------------------------------------------------- */
+      /* ===================================================
+         Resize
+         =================================================== */
 
       function resizeCanvas() {
 
@@ -203,10 +231,14 @@
 
 
         canvas.width =
-          Math.floor(width * dpr);
+          Math.round(
+            width * dpr
+          );
 
         canvas.height =
-          Math.floor(height * dpr);
+          Math.round(
+            height * dpr
+          );
 
 
         canvas.style.width =
@@ -226,14 +258,14 @@
         );
 
 
-        createParticles();
+        createParticleField();
 
       }
 
 
-      /* ---------------------------------------------------
-         Particle object
-         --------------------------------------------------- */
+      /* ===================================================
+         Particle factory
+         =================================================== */
 
       function createParticle() {
 
@@ -243,12 +275,12 @@
           2;
 
 
-        const velocity =
-          CONFIG.speed *
+        const speed =
+          CONFIG.baseSpeed *
           (
-            0.45 +
+            0.50 +
             Math.random() *
-            0.75
+            0.90
           );
 
 
@@ -264,11 +296,11 @@
 
           vx:
             Math.cos(angle) *
-            velocity,
+            speed,
 
           vy:
             Math.sin(angle) *
-            velocity,
+            speed,
 
           radius:
             CONFIG.minRadius +
@@ -279,39 +311,43 @@
             ),
 
           alpha:
-            0.25 +
+            0.30 +
             Math.random() *
-            0.45
+            0.42,
+
+          baseX: 0,
+          baseY: 0
 
         };
 
       }
 
 
-      /* ---------------------------------------------------
-         Create particle field
-         --------------------------------------------------- */
+      /* ===================================================
+         Create field
+         =================================================== */
 
-      function createParticles() {
+      function createParticleField() {
 
-        const calculatedCount =
-          Math.floor(
-            (
-              width *
-              height
-            ) /
-            CONFIG.density
-          );
-
-
-        const particleCount =
+        const count =
           Math.max(
+
             CONFIG.minParticles,
 
             Math.min(
+
               CONFIG.maxParticles,
-              calculatedCount
+
+              Math.floor(
+                (
+                  width *
+                  height
+                ) /
+                CONFIG.density
+              )
+
             )
+
           );
 
 
@@ -320,7 +356,7 @@
 
         for (
           let i = 0;
-          i < particleCount;
+          i < count;
           i++
         ) {
 
@@ -333,118 +369,61 @@
       }
 
 
-      /* ---------------------------------------------------
-         Mouse interaction
-         --------------------------------------------------- */
-
-      document.addEventListener(
-        "pointermove",
-
-        function (event) {
-
-          mouse.x =
-            event.clientX;
-
-          mouse.y =
-            event.clientY;
-
-          mouse.active =
-            true;
-
-        },
-
-        {
-          passive: true
-        }
-      );
-
-
-      document.addEventListener(
-        "pointerleave",
-
-        function () {
-
-          mouse.active =
-            false;
-
-          mouse.x =
-            -1000;
-
-          mouse.y =
-            -1000;
-
-        }
-      );
-
-
-      /* ---------------------------------------------------
-         Update particle movement
-         --------------------------------------------------- */
+      /* ===================================================
+         Update particle
+         =================================================== */
 
       function updateParticle(
-        particle
+        particle,
+        deltaScale
       ) {
 
-        /*
-         * Natural movement.
-         */
-
         particle.x +=
-          particle.vx;
+          particle.vx *
+          deltaScale;
 
         particle.y +=
-          particle.vy;
+          particle.vy *
+          deltaScale;
 
 
         /*
-         * Wrap around viewport edges.
+         * Wrap around viewport.
          */
 
         if (
-          particle.x <
-          -10
+          particle.x < -10
         ) {
-
           particle.x =
             width + 10;
-
         }
 
         if (
           particle.x >
           width + 10
         ) {
-
           particle.x =
             -10;
-
         }
 
         if (
-          particle.y <
-          -10
+          particle.y < -10
         ) {
-
           particle.y =
             height + 10;
-
         }
 
         if (
           particle.y >
           height + 10
         ) {
-
           particle.y =
             -10;
-
         }
 
 
         /*
-         * Mouse interaction.
-         *
-         * Particles gently move away from cursor.
+         * Mouse repulsion.
          */
 
         if (mouse.active) {
@@ -463,16 +442,16 @@
             dy * dy;
 
 
-          const mouseRadiusSquared =
+          const radiusSquared =
             CONFIG.mouseRadius *
             CONFIG.mouseRadius;
 
 
           if (
             distanceSquared <
-              mouseRadiusSquared &&
+              radiusSquared &&
             distanceSquared >
-              0.01
+              1
           ) {
 
             const distance =
@@ -481,12 +460,15 @@
               );
 
 
+            const strength =
+              1 -
+              distance /
+              CONFIG.mouseRadius;
+
+
             const force =
-              (
-                1 -
-                distance /
-                  CONFIG.mouseRadius
-              ) *
+              strength *
+              strength *
               CONFIG.mouseForce;
 
 
@@ -496,7 +478,7 @@
                 distance
               ) *
               force *
-              26;
+              1.8;
 
 
             particle.y +=
@@ -505,7 +487,7 @@
                 distance
               ) *
               force *
-              26;
+              1.8;
 
           }
 
@@ -514,9 +496,9 @@
       }
 
 
-      /* ---------------------------------------------------
-         Draw particle
-         --------------------------------------------------- */
+      /* ===================================================
+         Draw particles
+         =================================================== */
 
       function drawParticle(
         particle
@@ -535,7 +517,7 @@
 
 
         ctx.fillStyle =
-          "rgba(59, 130, 246, " +
+          "rgba(37, 99, 235, " +
           particle.alpha +
           ")";
 
@@ -545,15 +527,14 @@
       }
 
 
-      /* ---------------------------------------------------
-         Draw connections
-         --------------------------------------------------- */
+      /* ===================================================
+         Particle connections
+         =================================================== */
 
       function drawConnections() {
 
         const maxDistance =
           CONFIG.connectionDistance;
-
 
         const maxDistanceSquared =
           maxDistance *
@@ -566,7 +547,7 @@
           i++
         ) {
 
-          const a =
+          const particleA =
             particles[i];
 
 
@@ -576,17 +557,17 @@
             j++
           ) {
 
-            const b =
+            const particleB =
               particles[j];
 
 
             const dx =
-              a.x -
-              b.x;
+              particleA.x -
+              particleB.x;
 
             const dy =
-              a.y -
-              b.y;
+              particleA.y -
+              particleB.y;
 
 
             const distanceSquared =
@@ -605,38 +586,38 @@
                 );
 
 
-              const opacity =
+              const alpha =
                 (
                   1 -
                   distance /
-                    maxDistance
+                  maxDistance
                 ) *
-                0.12;
+                CONFIG.normalConnectionOpacity;
 
 
               ctx.beginPath();
 
 
               ctx.moveTo(
-                a.x,
-                a.y
+                particleA.x,
+                particleA.y
               );
 
 
               ctx.lineTo(
-                b.x,
-                b.y
+                particleB.x,
+                particleB.y
               );
 
 
               ctx.strokeStyle =
                 "rgba(59, 130, 246, " +
-                opacity +
+                alpha +
                 ")";
 
 
               ctx.lineWidth =
-                0.7;
+                0.65;
 
 
               ctx.stroke();
@@ -650,9 +631,9 @@
       }
 
 
-      /* ---------------------------------------------------
-         Mouse halo particle connections
-         --------------------------------------------------- */
+      /* ===================================================
+         Mouse connections
+         =================================================== */
 
       function drawMouseConnections() {
 
@@ -661,79 +642,192 @@
         }
 
 
-        particles.forEach(
-          function (particle) {
+        for (
+          let i = 0;
+          i < particles.length;
+          i++
+        ) {
 
-            const dx =
-              particle.x -
-              mouse.x;
-
-            const dy =
-              particle.y -
-              mouse.y;
+          const particle =
+            particles[i];
 
 
-            const distance =
-              Math.sqrt(
-                dx * dx +
-                dy * dy
-              );
+          const dx =
+            particle.x -
+            mouse.x;
+
+          const dy =
+            particle.y -
+            mouse.y;
 
 
-            if (
-              distance <
-              CONFIG.mouseRadius
-            ) {
-
-              const opacity =
-                (
-                  1 -
-                  distance /
-                    CONFIG.mouseRadius
-                ) *
-                0.18;
+          const distance =
+            Math.sqrt(
+              dx * dx +
+              dy * dy
+            );
 
 
-              ctx.beginPath();
+          if (
+            distance <
+            CONFIG.mouseRadius
+          ) {
+
+            const alpha =
+              (
+                1 -
+                distance /
+                CONFIG.mouseRadius
+              ) *
+              CONFIG.mouseConnectionOpacity;
 
 
-              ctx.moveTo(
-                particle.x,
-                particle.y
-              );
+            ctx.beginPath();
 
 
-              ctx.lineTo(
-                mouse.x,
-                mouse.y
-              );
+            ctx.moveTo(
+              particle.x,
+              particle.y
+            );
 
 
-              ctx.strokeStyle =
-                "rgba(56, 189, 248, " +
-                opacity +
-                ")";
+            ctx.lineTo(
+              mouse.x,
+              mouse.y
+            );
 
 
-              ctx.lineWidth =
-                0.8;
+            ctx.strokeStyle =
+              "rgba(56, 189, 248, " +
+              alpha +
+              ")";
 
 
-              ctx.stroke();
+            ctx.lineWidth =
+              0.85;
 
-            }
+
+            ctx.stroke();
 
           }
-        );
+
+        }
 
       }
 
 
-      /* ---------------------------------------------------
-         Animation loop
-         --------------------------------------------------- */
+      /* ===================================================
+         Mouse pulse
+         =================================================== */
 
-      function animateParticles() {
+      function drawMousePulse(
+        time
+      ) {
+
+        if (!mouse.active) {
+          return;
+        }
+
+
+        const cycle =
+          (
+            Math.sin(
+              time * 0.002
+            ) +
+            1
+          ) /
+          2;
+
+
+        const radius =
+          11 +
+          cycle * 8;
+
+
+        const alpha =
+          0.08 +
+          cycle * 0.05;
+
+
+        const gradient =
+          ctx.createRadialGradient(
+
+            mouse.x,
+            mouse.y,
+            0,
+
+            mouse.x,
+            mouse.y,
+            radius
+
+          );
+
+
+        gradient.addColorStop(
+          0,
+          "rgba(56, 189, 248, " +
+          alpha +
+          ")"
+        );
+
+
+        gradient.addColorStop(
+          1,
+          "rgba(56, 189, 248, 0)"
+        );
+
+
+        ctx.beginPath();
+
+
+        ctx.arc(
+          mouse.x,
+          mouse.y,
+          radius,
+          0,
+          Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+          gradient;
+
+
+        ctx.fill();
+
+      }
+
+
+      /* ===================================================
+         Animation
+         =================================================== */
+
+      function animate(
+        time
+      ) {
+
+        animationFrame =
+          requestAnimationFrame(
+            animate
+          );
+
+
+        const delta =
+          lastTime
+            ? time - lastTime
+            : 16.67;
+
+
+        lastTime =
+          time;
+
+
+        const deltaScale =
+          Math.min(
+            delta / 16.67,
+            2
+          );
+
 
         ctx.clearRect(
           0,
@@ -743,48 +837,102 @@
         );
 
 
-        particles.forEach(
-          function (particle) {
+        for (
+          let i = 0;
+          i < particles.length;
+          i++
+        ) {
 
-            updateParticle(
-              particle
-            );
+          updateParticle(
+            particles[i],
+            deltaScale
+          );
 
-            drawParticle(
-              particle
-            );
-
-          }
-        );
+        }
 
 
         drawConnections();
 
+
+        for (
+          let i = 0;
+          i < particles.length;
+          i++
+        ) {
+
+          drawParticle(
+            particles[i]
+          );
+
+        }
+
+
         drawMouseConnections();
 
-
-        requestAnimationFrame(
-          animateParticles
+        drawMousePulse(
+          time
         );
 
       }
 
 
-      /*
-       * Initialise.
-       */
+      /* ===================================================
+         Visibility optimisation
+         =================================================== */
 
-      resizeCanvas();
+      document.addEventListener(
+        "visibilitychange",
+        function () {
 
-      animateParticles();
+          if (
+            document.hidden
+          ) {
 
+            if (
+              animationFrame
+            ) {
+
+              cancelAnimationFrame(
+                animationFrame
+              );
+
+              animationFrame =
+                null;
+
+            }
+
+          } else {
+
+            lastTime =
+              0;
+
+
+            if (
+              !animationFrame
+            ) {
+
+              animationFrame =
+                requestAnimationFrame(
+                  animate
+                );
+
+            }
+
+          }
+
+        }
+      );
+
+
+      /* ===================================================
+         Window resize
+         =================================================== */
 
       let resizeTimer;
 
 
       window.addEventListener(
         "resize",
-
         function () {
 
           clearTimeout(
@@ -795,15 +943,27 @@
           resizeTimer =
             setTimeout(
               resizeCanvas,
-              160
+              180
             );
 
         },
-
         {
           passive: true
         }
       );
+
+
+      /* ===================================================
+         Initialise
+         =================================================== */
+
+      resizeCanvas();
+
+
+      animationFrame =
+        requestAnimationFrame(
+          animate
+        );
 
     }
 
@@ -811,7 +971,7 @@
 
 
   /* =======================================================
-     3. Masthead scroll state
+     3. Masthead
      ======================================================= */
 
   const masthead =
@@ -852,9 +1012,7 @@
 
   window.addEventListener(
     "scroll",
-
     updateMasthead,
-
     {
       passive: true
     }
@@ -862,7 +1020,7 @@
 
 
   /* =======================================================
-     4. Scroll reveal
+     4. Scroll Reveal
      ======================================================= */
 
   const content =
@@ -873,14 +1031,18 @@
 
   if (content) {
 
-    const revealCandidates =
+    const elements =
       content.querySelectorAll(
         "h1, h2, .paper-box, p, ul, ol"
       );
 
 
-    revealCandidates.forEach(
+    elements.forEach(
       function (element) {
+
+        /*
+         * Avoid nested animation inside publication cards.
+         */
 
         if (
           element.closest(
@@ -890,9 +1052,7 @@
             "paper-box"
           )
         ) {
-
           return;
-
         }
 
 
@@ -902,21 +1062,6 @@
 
       }
     );
-
-
-    content
-      .querySelectorAll(
-        "h1, h2"
-      )
-      .forEach(
-        function (heading) {
-
-          heading.classList.add(
-            "premium-heading"
-          );
-
-        }
-      );
 
 
     if (
@@ -959,13 +1104,10 @@
           },
 
           {
-            root: null,
-
-            threshold:
-              0.08,
+            threshold: 0.07,
 
             rootMargin:
-              "0px 0px -35px 0px"
+              "0px 0px -30px 0px"
           }
 
         );
@@ -973,7 +1115,7 @@
 
       document
         .querySelectorAll(
-          ".premium-reveal, .premium-heading"
+          ".premium-reveal, .page__content h1, .page__content h2"
         )
         .forEach(
           function (element) {
@@ -989,7 +1131,7 @@
 
       document
         .querySelectorAll(
-          ".premium-reveal, .premium-heading"
+          ".premium-reveal, .page__content h1, .page__content h2"
         )
         .forEach(
           function (element) {
@@ -1007,50 +1149,11 @@
 
 
   /* =======================================================
-     5. External links
-     ======================================================= */
-
-  document
-    .querySelectorAll(
-      ".page__content a[href^='http']"
-    )
-    .forEach(
-      function (link) {
-
-        link.addEventListener(
-          "mouseenter",
-
-          function () {
-
-            link.style.opacity =
-              "0.82";
-
-          }
-        );
-
-
-        link.addEventListener(
-          "mouseleave",
-
-          function () {
-
-            link.style.opacity =
-              "";
-
-          }
-        );
-
-      }
-    );
-
-
-  /* =======================================================
-     6. Loaded state
+     5. Loaded State
      ======================================================= */
 
   window.addEventListener(
     "load",
-
     function () {
 
       document.body
