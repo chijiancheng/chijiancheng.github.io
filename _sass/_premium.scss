@@ -1,1046 +1,1065 @@
-/* =========================================================
-   Jiancheng Chi Academic Homepage
-   Premium Visual Enhancement
-   Final Version
-   ========================================================= */
-
-
-/* =========================================================
-   0. DESIGN TOKENS
-   ========================================================= */
-
-:root {
-  --premium-blue: #2563eb;
-  --premium-blue-soft: #60a5fa;
-  --premium-indigo: #6366f1;
-  --premium-cyan: #38bdf8;
-
-  --premium-text: #1e293b;
-  --premium-muted: #64748b;
-
-  --premium-border: rgba(37, 99, 235, 0.10);
-  --premium-glass: rgba(255, 255, 255, 0.70);
-
-  --mouse-x: 50vw;
-  --mouse-y: 30vh;
-}
-
-
-/* =========================================================
-   1. GLOBAL BACKGROUND
-   ========================================================= */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  position: relative;
-  overflow-x: hidden;
-
-  background:
-    radial-gradient(
-      circle at 10% -10%,
-      rgba(96, 165, 250, 0.10),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 92% 10%,
-      rgba(99, 102, 241, 0.075),
-      transparent 32%
-    ),
-    #ffffff;
-}
-
-
-/* Faint technical grid */
-
-body::before {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: -3;
-
-  background-image:
-    linear-gradient(
-      rgba(37, 99, 235, 0.026) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(37, 99, 235, 0.026) 1px,
-      transparent 1px
-    );
-
-  background-size: 42px 42px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.80),
-      rgba(0, 0, 0, 0.15) 65%,
-      transparent
-    );
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.80),
-      rgba(0, 0, 0, 0.15) 65%,
-      transparent
-    );
-}
-
-
-/* =========================================================
-   2. MOUSE SPOTLIGHT
-   ========================================================= */
-
-.premium-spotlight {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: -1;
-
-  background:
-    radial-gradient(
-      600px circle at var(--mouse-x) var(--mouse-y),
-      rgba(59, 130, 246, 0.075),
-      transparent 42%
-    );
-
-  transition: opacity 0.25s ease;
-}
-
-
-/* =========================================================
-   3. AMBIENT BACKGROUND LIGHT
-   ========================================================= */
-
-.premium-ambient {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  overflow: hidden;
-
-  z-index: -2;
-}
-
-.premium-ambient::before,
-.premium-ambient::after {
-  content: "";
-
-  position: absolute;
-
-  width: 440px;
-  height: 440px;
-
-  border-radius: 50%;
-
-  filter: blur(100px);
-  opacity: 0.10;
-
-  animation:
-    premiumFloat
-    16s
-    ease-in-out
-    infinite;
-}
-
-.premium-ambient::before {
-  left: -200px;
-  top: 12vh;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--premium-cyan),
-      var(--premium-blue)
-    );
-}
-
-.premium-ambient::after {
-  right: -220px;
-  top: 42vh;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--premium-indigo),
-      var(--premium-blue-soft)
-    );
-
-  animation-delay: -7s;
-}
-
-@keyframes premiumFloat {
-  0%,
-  100% {
-    transform:
-      translate3d(0, 0, 0)
-      scale(1);
-  }
-
-  50% {
-    transform:
-      translate3d(0, 45px, 0)
-      scale(1.08);
-  }
-}
-
-
-/* =========================================================
-   4. MASTHEAD / NAVIGATION
-   ========================================================= */
-
-.masthead {
-  position: sticky;
-  top: 0;
-
-  z-index: 100;
-
-  background:
-    rgba(255, 255, 255, 0.76) !important;
-
-  -webkit-backdrop-filter:
-    blur(18px)
-    saturate(150%);
-
-  backdrop-filter:
-    blur(18px)
-    saturate(150%);
-
-  border-bottom:
-    1px solid rgba(15, 23, 42, 0.055);
-
-  transition:
-    box-shadow 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.masthead.premium-scrolled {
-  background:
-    rgba(255, 255, 255, 0.88) !important;
-
-  box-shadow:
-    0 8px 30px
-    rgba(15, 23, 42, 0.065);
-
-  border-bottom-color:
-    rgba(37, 99, 235, 0.085);
-}
-
-
-/* Navigation links */
-
-.greedy-nav a,
-.masthead a {
-  transition:
-    color 0.22s ease,
-    opacity 0.22s ease;
-}
-
-.greedy-nav .visible-links a::before {
-  height: 2px !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--premium-blue),
-      var(--premium-cyan)
-    ) !important;
-
-  transition:
-    transform 0.25s ease;
-}
-
-
-/* =========================================================
-   5. MAIN CONTENT
-   ========================================================= */
-
-#main {
-  position: relative;
-}
-
-
-/* =========================================================
-   6. SIDEBAR / PROFILE
-   ========================================================= */
-
-/*
- * IMPORTANT:
+/**
+ * Jiancheng Chi Academic Homepage
+ * Premium Visual Enhancement
  *
- * In your current HTML:
- *
- * <div class="author__avatar">
- *   <img class="author__avatar">
- * </div>
- *
- * So the selectors below explicitly distinguish:
- *
- * div.author__avatar
- * img.author__avatar
+ * Features:
+ * - Mouse-follow spotlight
+ * - Interactive particle background
+ * - Particle connections
+ * - Mouse particle interaction
+ * - Sticky navigation enhancement
+ * - Scroll reveal
  */
 
-
-/* =========================================================
-   AVATAR OUTER CONTAINER
-   ========================================================= */
-
-div.author__avatar {
-  position: relative;
-
-  display: block;
-
-  width: 100%;
-  max-width: 210px;
-
-  aspect-ratio: 1 / 1;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  border-radius: 50%;
-
-  overflow: visible;
-
-  isolation: isolate;
-}
+(function () {
+  "use strict";
 
 
-/* =========================================================
-   PORTRAIT
-   ========================================================= */
+  /* =======================================================
+     Environment
+     ======================================================= */
 
-/*
- * The image itself is forced into a true circle.
- *
- * No translation.
- * No asymmetric positioning.
- * No 3D tilt.
- *
- * This ensures:
- *
- * portrait circle
- * white border
- * outer ring
- *
- * all share the same center.
- */
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-div.author__avatar > img.author__avatar {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 3;
-
-  display: block;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  max-width: none !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-
-  border-radius: 50% !important;
-
-  object-fit: cover;
-  object-position: center center;
-
-  box-sizing: border-box;
-
-  /*
-   * White separation ring.
-   */
-
-  border:
-    4px solid rgba(255, 255, 255, 0.98);
-
-  /*
-   * Critical:
-   * clip the four corners of the original rectangular image.
-   */
-
-  overflow: hidden;
-
-  transform: none !important;
-
-  box-shadow:
-    0 13px 34px
-    rgba(15, 23, 42, 0.12);
-
-  transition:
-    transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.35s ease;
-}
+  const isMobile =
+    window.matchMedia(
+      "(max-width: 768px)"
+    ).matches;
 
 
-/* =========================================================
-   ROTATING OUTER RING
-   ========================================================= */
+  /* =======================================================
+     1. Mouse-follow spotlight
+     ======================================================= */
 
-/*
- * The rotating ring is independent from the portrait.
- *
- * It is centered on the same div.author__avatar container.
- */
+  if (!isMobile && !reducedMotion) {
 
-div.author__avatar::before {
-  content: "";
+    let targetX =
+      window.innerWidth / 2;
 
-  position: absolute;
+    let targetY =
+      window.innerHeight / 3;
 
-  inset: -8px;
+    let currentX =
+      targetX;
 
-  z-index: 1;
+    let currentY =
+      targetY;
 
-  border-radius: 50%;
 
-  padding: 3px;
+    document.addEventListener(
+      "pointermove",
 
-  background:
-    conic-gradient(
-      from 0deg,
+      function (event) {
 
-      rgba(96, 165, 250, 0.04) 0deg,
+        targetX =
+          event.clientX;
 
-      rgba(96, 165, 250, 0.50) 40deg,
+        targetY =
+          event.clientY;
 
-      rgba(56, 189, 248, 0.72) 92deg,
+      },
 
-      rgba(99, 102, 241, 0.50) 145deg,
-
-      rgba(99, 102, 241, 0.10) 195deg,
-
-      rgba(96, 165, 250, 0.02) 235deg,
-
-      rgba(56, 189, 248, 0.30) 285deg,
-
-      rgba(96, 165, 250, 0.52) 330deg,
-
-      rgba(96, 165, 250, 0.04) 360deg
+      {
+        passive: true
+      }
     );
 
-  /*
-   * Convert the gradient disc into a hollow ring.
-   */
 
-  -webkit-mask:
-    linear-gradient(#000 0 0)
-      content-box,
-    linear-gradient(#000 0 0);
+    function animateSpotlight() {
 
-  -webkit-mask-composite: xor;
+      currentX +=
+        (targetX - currentX) *
+        0.10;
 
-  mask-composite: exclude;
-
-  opacity: 0.72;
-
-  transform-origin: center center;
-
-  animation:
-    premiumAvatarRotate
-    18s
-    linear
-    infinite;
-
-  pointer-events: none;
-}
+      currentY +=
+        (targetY - currentY) *
+        0.10;
 
 
-/* =========================================================
-   SOFT OUTER GLOW
-   ========================================================= */
-
-div.author__avatar::after {
-  content: "";
-
-  position: absolute;
-
-  inset: -11px;
-
-  z-index: 0;
-
-  border-radius: 50%;
-
-  background: transparent;
-
-  box-shadow:
-    0 0 20px rgba(96, 165, 250, 0.14),
-    0 0 38px rgba(56, 189, 248, 0.08);
-
-  pointer-events: none;
-}
+      document.documentElement
+        .style
+        .setProperty(
+          "--mouse-x",
+          currentX + "px"
+        );
 
 
-/* =========================================================
-   AVATAR HOVER
-   ========================================================= */
-
-div.author__avatar:hover
-> img.author__avatar {
-  transform:
-    scale(1.015) !important;
-
-  box-shadow:
-    0 17px 42px
-    rgba(15, 23, 42, 0.15);
-}
+      document.documentElement
+        .style
+        .setProperty(
+          "--mouse-y",
+          currentY + "px"
+        );
 
 
-/* =========================================================
-   AVATAR ROTATION
-   ========================================================= */
+      requestAnimationFrame(
+        animateSpotlight
+      );
 
-@keyframes premiumAvatarRotate {
-  from {
-    transform:
-      rotate(0deg);
+    }
+
+
+    animateSpotlight();
+
   }
 
-  to {
-    transform:
-      rotate(360deg);
+
+  /* =======================================================
+     2. Interactive particle background
+     ======================================================= */
+
+  if (!isMobile && !reducedMotion) {
+
+    const canvas =
+      document.getElementById(
+        "premium-particles"
+      );
+
+
+    if (canvas) {
+
+      const ctx =
+        canvas.getContext("2d");
+
+
+      let width = 0;
+      let height = 0;
+
+      let dpr =
+        Math.min(
+          window.devicePixelRatio || 1,
+          2
+        );
+
+
+      /*
+       * Mouse position.
+       */
+
+      const mouse = {
+
+        x: -1000,
+
+        y: -1000,
+
+        active: false
+
+      };
+
+
+      /*
+       * Particle configuration.
+       *
+       * Keep values deliberately conservative.
+       */
+
+      const CONFIG = {
+
+        density: 21000,
+
+        minParticles: 28,
+
+        maxParticles: 72,
+
+        minRadius: 0.8,
+
+        maxRadius: 1.8,
+
+        speed: 0.15,
+
+        connectionDistance: 115,
+
+        mouseRadius: 150,
+
+        mouseForce: 0.018
+
+      };
+
+
+      let particles = [];
+
+
+      /* ---------------------------------------------------
+         Resize canvas
+         --------------------------------------------------- */
+
+      function resizeCanvas() {
+
+        width =
+          window.innerWidth;
+
+        height =
+          window.innerHeight;
+
+
+        dpr =
+          Math.min(
+            window.devicePixelRatio || 1,
+            2
+          );
+
+
+        canvas.width =
+          Math.floor(width * dpr);
+
+        canvas.height =
+          Math.floor(height * dpr);
+
+
+        canvas.style.width =
+          width + "px";
+
+        canvas.style.height =
+          height + "px";
+
+
+        ctx.setTransform(
+          dpr,
+          0,
+          0,
+          dpr,
+          0,
+          0
+        );
+
+
+        createParticles();
+
+      }
+
+
+      /* ---------------------------------------------------
+         Particle object
+         --------------------------------------------------- */
+
+      function createParticle() {
+
+        const angle =
+          Math.random() *
+          Math.PI *
+          2;
+
+
+        const velocity =
+          CONFIG.speed *
+          (
+            0.45 +
+            Math.random() *
+            0.75
+          );
+
+
+        return {
+
+          x:
+            Math.random() *
+            width,
+
+          y:
+            Math.random() *
+            height,
+
+          vx:
+            Math.cos(angle) *
+            velocity,
+
+          vy:
+            Math.sin(angle) *
+            velocity,
+
+          radius:
+            CONFIG.minRadius +
+            Math.random() *
+            (
+              CONFIG.maxRadius -
+              CONFIG.minRadius
+            ),
+
+          alpha:
+            0.25 +
+            Math.random() *
+            0.45
+
+        };
+
+      }
+
+
+      /* ---------------------------------------------------
+         Create particle field
+         --------------------------------------------------- */
+
+      function createParticles() {
+
+        const calculatedCount =
+          Math.floor(
+            (
+              width *
+              height
+            ) /
+            CONFIG.density
+          );
+
+
+        const particleCount =
+          Math.max(
+            CONFIG.minParticles,
+
+            Math.min(
+              CONFIG.maxParticles,
+              calculatedCount
+            )
+          );
+
+
+        particles = [];
+
+
+        for (
+          let i = 0;
+          i < particleCount;
+          i++
+        ) {
+
+          particles.push(
+            createParticle()
+          );
+
+        }
+
+      }
+
+
+      /* ---------------------------------------------------
+         Mouse interaction
+         --------------------------------------------------- */
+
+      document.addEventListener(
+        "pointermove",
+
+        function (event) {
+
+          mouse.x =
+            event.clientX;
+
+          mouse.y =
+            event.clientY;
+
+          mouse.active =
+            true;
+
+        },
+
+        {
+          passive: true
+        }
+      );
+
+
+      document.addEventListener(
+        "pointerleave",
+
+        function () {
+
+          mouse.active =
+            false;
+
+          mouse.x =
+            -1000;
+
+          mouse.y =
+            -1000;
+
+        }
+      );
+
+
+      /* ---------------------------------------------------
+         Update particle movement
+         --------------------------------------------------- */
+
+      function updateParticle(
+        particle
+      ) {
+
+        /*
+         * Natural movement.
+         */
+
+        particle.x +=
+          particle.vx;
+
+        particle.y +=
+          particle.vy;
+
+
+        /*
+         * Wrap around viewport edges.
+         */
+
+        if (
+          particle.x <
+          -10
+        ) {
+
+          particle.x =
+            width + 10;
+
+        }
+
+        if (
+          particle.x >
+          width + 10
+        ) {
+
+          particle.x =
+            -10;
+
+        }
+
+        if (
+          particle.y <
+          -10
+        ) {
+
+          particle.y =
+            height + 10;
+
+        }
+
+        if (
+          particle.y >
+          height + 10
+        ) {
+
+          particle.y =
+            -10;
+
+        }
+
+
+        /*
+         * Mouse interaction.
+         *
+         * Particles gently move away from cursor.
+         */
+
+        if (mouse.active) {
+
+          const dx =
+            particle.x -
+            mouse.x;
+
+          const dy =
+            particle.y -
+            mouse.y;
+
+
+          const distanceSquared =
+            dx * dx +
+            dy * dy;
+
+
+          const mouseRadiusSquared =
+            CONFIG.mouseRadius *
+            CONFIG.mouseRadius;
+
+
+          if (
+            distanceSquared <
+              mouseRadiusSquared &&
+            distanceSquared >
+              0.01
+          ) {
+
+            const distance =
+              Math.sqrt(
+                distanceSquared
+              );
+
+
+            const force =
+              (
+                1 -
+                distance /
+                  CONFIG.mouseRadius
+              ) *
+              CONFIG.mouseForce;
+
+
+            particle.x +=
+              (
+                dx /
+                distance
+              ) *
+              force *
+              26;
+
+
+            particle.y +=
+              (
+                dy /
+                distance
+              ) *
+              force *
+              26;
+
+          }
+
+        }
+
+      }
+
+
+      /* ---------------------------------------------------
+         Draw particle
+         --------------------------------------------------- */
+
+      function drawParticle(
+        particle
+      ) {
+
+        ctx.beginPath();
+
+
+        ctx.arc(
+          particle.x,
+          particle.y,
+          particle.radius,
+          0,
+          Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+          "rgba(59, 130, 246, " +
+          particle.alpha +
+          ")";
+
+
+        ctx.fill();
+
+      }
+
+
+      /* ---------------------------------------------------
+         Draw connections
+         --------------------------------------------------- */
+
+      function drawConnections() {
+
+        const maxDistance =
+          CONFIG.connectionDistance;
+
+
+        const maxDistanceSquared =
+          maxDistance *
+          maxDistance;
+
+
+        for (
+          let i = 0;
+          i < particles.length;
+          i++
+        ) {
+
+          const a =
+            particles[i];
+
+
+          for (
+            let j = i + 1;
+            j < particles.length;
+            j++
+          ) {
+
+            const b =
+              particles[j];
+
+
+            const dx =
+              a.x -
+              b.x;
+
+            const dy =
+              a.y -
+              b.y;
+
+
+            const distanceSquared =
+              dx * dx +
+              dy * dy;
+
+
+            if (
+              distanceSquared <
+              maxDistanceSquared
+            ) {
+
+              const distance =
+                Math.sqrt(
+                  distanceSquared
+                );
+
+
+              const opacity =
+                (
+                  1 -
+                  distance /
+                    maxDistance
+                ) *
+                0.12;
+
+
+              ctx.beginPath();
+
+
+              ctx.moveTo(
+                a.x,
+                a.y
+              );
+
+
+              ctx.lineTo(
+                b.x,
+                b.y
+              );
+
+
+              ctx.strokeStyle =
+                "rgba(59, 130, 246, " +
+                opacity +
+                ")";
+
+
+              ctx.lineWidth =
+                0.7;
+
+
+              ctx.stroke();
+
+            }
+
+          }
+
+        }
+
+      }
+
+
+      /* ---------------------------------------------------
+         Mouse halo particle connections
+         --------------------------------------------------- */
+
+      function drawMouseConnections() {
+
+        if (!mouse.active) {
+          return;
+        }
+
+
+        particles.forEach(
+          function (particle) {
+
+            const dx =
+              particle.x -
+              mouse.x;
+
+            const dy =
+              particle.y -
+              mouse.y;
+
+
+            const distance =
+              Math.sqrt(
+                dx * dx +
+                dy * dy
+              );
+
+
+            if (
+              distance <
+              CONFIG.mouseRadius
+            ) {
+
+              const opacity =
+                (
+                  1 -
+                  distance /
+                    CONFIG.mouseRadius
+                ) *
+                0.18;
+
+
+              ctx.beginPath();
+
+
+              ctx.moveTo(
+                particle.x,
+                particle.y
+              );
+
+
+              ctx.lineTo(
+                mouse.x,
+                mouse.y
+              );
+
+
+              ctx.strokeStyle =
+                "rgba(56, 189, 248, " +
+                opacity +
+                ")";
+
+
+              ctx.lineWidth =
+                0.8;
+
+
+              ctx.stroke();
+
+            }
+
+          }
+        );
+
+      }
+
+
+      /* ---------------------------------------------------
+         Animation loop
+         --------------------------------------------------- */
+
+      function animateParticles() {
+
+        ctx.clearRect(
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        particles.forEach(
+          function (particle) {
+
+            updateParticle(
+              particle
+            );
+
+            drawParticle(
+              particle
+            );
+
+          }
+        );
+
+
+        drawConnections();
+
+        drawMouseConnections();
+
+
+        requestAnimationFrame(
+          animateParticles
+        );
+
+      }
+
+
+      /*
+       * Initialise.
+       */
+
+      resizeCanvas();
+
+      animateParticles();
+
+
+      let resizeTimer;
+
+
+      window.addEventListener(
+        "resize",
+
+        function () {
+
+          clearTimeout(
+            resizeTimer
+          );
+
+
+          resizeTimer =
+            setTimeout(
+              resizeCanvas,
+              160
+            );
+
+        },
+
+        {
+          passive: true
+        }
+      );
+
+    }
+
   }
-}
 
 
-/* =========================================================
-   AUTHOR NAME
-   ========================================================= */
+  /* =======================================================
+     3. Masthead scroll state
+     ======================================================= */
 
-.author__name {
-  letter-spacing:
-    -0.025em;
-}
-
-
-/* =========================================================
-   PROFILE LINKS
-   ========================================================= */
-
-.author__urls a {
-  position: relative;
-
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease,
-    background 0.2s ease;
-}
-
-.author__urls a:hover {
-  transform:
-    translateX(3px);
-}
-
-
-/* =========================================================
-   7. SECTION HEADINGS
-   ========================================================= */
-
-.page__content h1,
-.page__content h2 {
-  position: relative;
-
-  margin-top: 1.85em;
-
-  letter-spacing:
-    -0.025em;
-}
-
-.page__content h1::after,
-.page__content h2::after {
-  content: "";
-
-  display: block;
-
-  width: 42px;
-  height: 3px;
-
-  margin-top: 8px;
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--premium-blue),
-      var(--premium-cyan)
+  const masthead =
+    document.querySelector(
+      ".masthead"
     );
 
-  transform-origin: left;
 
-  transform: scaleX(0);
+  function updateMasthead() {
 
-  opacity: 0;
-
-  transition:
-    transform 0.65s
-      cubic-bezier(.22, 1, .36, 1),
-    opacity 0.4s ease;
-}
-
-.page__content h1.premium-visible::after,
-.page__content h2.premium-visible::after {
-  transform:
-    scaleX(1);
-
-  opacity: 1;
-}
+    if (!masthead) {
+      return;
+    }
 
 
-/* =========================================================
-   8. LINKS
-   ========================================================= */
+    if (
+      window.scrollY >
+      16
+    ) {
 
-.page__content a {
-  text-decoration-thickness:
-    1px;
+      masthead.classList.add(
+        "premium-scrolled"
+      );
 
-  text-underline-offset:
-    3px;
+    } else {
 
-  transition:
-    color 0.2s ease,
-    text-decoration-color 0.2s ease;
-}
+      masthead.classList.remove(
+        "premium-scrolled"
+      );
 
-.page__content a:hover {
-  text-decoration-color:
-    rgba(37, 99, 235, 0.50);
-}
+    }
+
+  }
 
 
-/* =========================================================
-   9. PUBLICATION / PAPER BOXES
-   ========================================================= */
-
-.paper-box {
-  position: relative;
-
-  margin:
-    2px 0;
-
-  border-radius:
-    14px;
-
-  border-bottom:
-    1px solid
-    rgba(15, 23, 42, 0.07)
-    !important;
-
-  transition:
-    transform 0.32s
-      cubic-bezier(.22, 1, .36, 1),
-    background 0.32s ease,
-    box-shadow 0.32s ease,
-    border-color 0.32s ease;
-}
+  updateMasthead();
 
 
-/* Left accent */
+  window.addEventListener(
+    "scroll",
 
-.paper-box::before {
-  content: "";
+    updateMasthead,
 
-  position: absolute;
+    {
+      passive: true
+    }
+  );
 
-  left: -1px;
-  top: 15%;
-  bottom: 15%;
 
-  width: 3px;
+  /* =======================================================
+     4. Scroll reveal
+     ======================================================= */
 
-  border-radius:
-    999px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      var(--premium-blue),
-      var(--premium-cyan)
+  const content =
+    document.querySelector(
+      ".page__content"
     );
 
-  opacity: 0;
 
-  transform:
-    scaleY(0.35);
+  if (content) {
 
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
+    const revealCandidates =
+      content.querySelectorAll(
+        "h1, h2, .paper-box, p, ul, ol"
+      );
 
-.paper-box:hover {
-  transform:
-    translateX(5px);
 
-  background:
-    linear-gradient(
-      100deg,
-      rgba(37, 99, 235, 0.042),
-      rgba(56, 189, 248, 0.012)
+    revealCandidates.forEach(
+      function (element) {
+
+        if (
+          element.closest(
+            ".paper-box"
+          ) &&
+          !element.classList.contains(
+            "paper-box"
+          )
+        ) {
+
+          return;
+
+        }
+
+
+        element.classList.add(
+          "premium-reveal"
+        );
+
+      }
     );
 
-  box-shadow:
-    0 13px 34px
-    rgba(15, 23, 42, 0.05);
-}
 
-.paper-box:hover::before {
-  opacity: 1;
+    content
+      .querySelectorAll(
+        "h1, h2"
+      )
+      .forEach(
+        function (heading) {
 
-  transform:
-    scaleY(1);
-}
+          heading.classList.add(
+            "premium-heading"
+          );
 
-
-/* Publication image */
-
-.paper-box-image img {
-  border-radius:
-    10px;
-
-  box-shadow:
-    0 10px 25px
-    rgba(15, 23, 42, 0.12)
-    !important;
-
-  transition:
-    transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.35s ease;
-}
-
-.paper-box:hover
-.paper-box-image img {
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 16px 38px
-    rgba(15, 23, 42, 0.16)
-    !important;
-}
+        }
+      );
 
 
-/* =========================================================
-   10. BADGES
-   ========================================================= */
+    if (
+      "IntersectionObserver" in window &&
+      !reducedMotion
+    ) {
 
-.badge {
-  border-radius:
-    5px;
+      const observer =
+        new IntersectionObserver(
 
-  background:
-    linear-gradient(
-      135deg,
-      #1d4ed8,
-      #2563eb
-    ) !important;
+          function (
+            entries,
+            observerInstance
+          ) {
 
-  box-shadow:
-    0 4px 14px
-    rgba(37, 99, 235, 0.22);
+            entries.forEach(
+              function (entry) {
 
-  letter-spacing:
-    0.01em;
-}
+                if (
+                  entry.isIntersecting
+                ) {
 
-
-/* =========================================================
-   11. GENERAL LIST ITEMS
-   ========================================================= */
-
-.page__content li {
-  transition:
-    transform 0.22s ease,
-    color 0.22s ease;
-}
-
-.page__content li:hover {
-  transform:
-    translateX(2px);
-}
+                  entry.target
+                    .classList
+                    .add(
+                      "premium-visible"
+                    );
 
 
-/* =========================================================
-   12. CONTENT IMAGES
-   ========================================================= */
+                  observerInstance
+                    .unobserve(
+                      entry.target
+                    );
 
-.page__content img {
-  transition:
-    transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.35s ease;
-}
+                }
 
+              }
+            );
 
-/* =========================================================
-   13. SCROLL REVEAL
-   ========================================================= */
+          },
 
-.premium-reveal {
-  opacity: 0;
+          {
+            root: null,
 
-  transform:
-    translateY(14px);
+            threshold:
+              0.08,
 
-  transition:
-    opacity 0.72s
-      cubic-bezier(.22, 1, .36, 1),
-    transform 0.72s
-      cubic-bezier(.22, 1, .36, 1);
+            rootMargin:
+              "0px 0px -35px 0px"
+          }
 
-  will-change:
-    opacity,
-    transform;
-}
-
-.premium-reveal.premium-visible {
-  opacity: 1;
-
-  transform:
-    translateY(0);
-}
+        );
 
 
-/* Slight stagger */
+      document
+        .querySelectorAll(
+          ".premium-reveal, .premium-heading"
+        )
+        .forEach(
+          function (element) {
 
-.premium-reveal:nth-child(2n) {
-  transition-delay:
-    40ms;
-}
+            observer.observe(
+              element
+            );
 
-.premium-reveal:nth-child(3n) {
-  transition-delay:
-    80ms;
-}
+          }
+        );
+
+    } else {
+
+      document
+        .querySelectorAll(
+          ".premium-reveal, .premium-heading"
+        )
+        .forEach(
+          function (element) {
+
+            element.classList.add(
+              "premium-visible"
+            );
+
+          }
+        );
+
+    }
+
+  }
 
 
-/* =========================================================
-   14. GOOGLE SCHOLAR CITATION BADGE
-   ========================================================= */
+  /* =======================================================
+     5. External links
+     ======================================================= */
 
-img[src*="shields.io"],
-img[src*="gs_data_shieldsio"] {
-  border-radius:
-    5px;
+  document
+    .querySelectorAll(
+      ".page__content a[href^='http']"
+    )
+    .forEach(
+      function (link) {
 
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
+        link.addEventListener(
+          "mouseenter",
 
-  filter:
-    drop-shadow(
-      0 3px 7px
-      rgba(15, 23, 42, 0.09)
+          function () {
+
+            link.style.opacity =
+              "0.82";
+
+          }
+        );
+
+
+        link.addEventListener(
+          "mouseleave",
+
+          function () {
+
+            link.style.opacity =
+              "";
+
+          }
+        );
+
+      }
     );
-}
-
-img[src*="shields.io"]:hover,
-img[src*="gs_data_shieldsio"]:hover {
-  transform:
-    translateY(-2px);
-
-  filter:
-    drop-shadow(
-      0 7px 12px
-      rgba(37, 99, 235, 0.14)
-    );
-}
 
 
-/* =========================================================
-   15. FOOTER
-   ========================================================= */
+  /* =======================================================
+     6. Loaded state
+     ======================================================= */
 
-footer {
-  position: relative;
+  window.addEventListener(
+    "load",
 
-  background:
-    rgba(248, 250, 252, 0.75)
-    !important;
+    function () {
 
-  border-top:
-    1px solid
-    rgba(15, 23, 42, 0.055);
+      document.body
+        .classList
+        .add(
+          "premium-loaded"
+        );
 
-  -webkit-backdrop-filter:
-    blur(10px);
+    }
+  );
 
-  backdrop-filter:
-    blur(10px);
-}
-
-
-/* =========================================================
-   16. TEXT SELECTION
-   ========================================================= */
-
-::selection {
-  background:
-    rgba(37, 99, 235, 0.15);
-
-  color:
-    #0f172a;
-}
-
-
-/* =========================================================
-   17. SCROLLBAR
-   ========================================================= */
-
-@media (min-width: 800px) {
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background:
-      transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border:
-      3px solid transparent;
-
-    border-radius:
-      10px;
-
-    background:
-      rgba(100, 116, 139, 0.26);
-
-    background-clip:
-      padding-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background:
-      rgba(37, 99, 235, 0.32);
-
-    background-clip:
-      padding-box;
-  }
-
-}
-
-
-/* =========================================================
-   18. MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  body::before {
-    opacity:
-      0.55;
-
-    background-size:
-      34px 34px;
-  }
-
-  .premium-spotlight {
-    display:
-      none;
-  }
-
-  .premium-ambient::before,
-  .premium-ambient::after {
-    opacity:
-      0.06;
-
-    filter:
-      blur(120px);
-  }
-
-  .paper-box:hover {
-    transform:
-      none;
-  }
-
-  .page__content li:hover {
-    transform:
-      none;
-  }
-
-  div.author__avatar {
-    max-width:
-      190px;
-  }
-
-  div.author__avatar:hover
-  > img.author__avatar {
-    transform:
-      none !important;
-  }
-
-  div.author__avatar::before {
-    inset:
-      -6px;
-
-    opacity:
-      0.55;
-
-    animation-duration:
-      24s;
-  }
-
-}
-
-
-/* =========================================================
-   19. REDUCED MOTION
-   ========================================================= */
-
-@media (
-  prefers-reduced-motion: reduce
-) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior:
-      auto !important;
-
-    animation-duration:
-      0.001ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      0.001ms !important;
-  }
-
-  .premium-reveal {
-    opacity:
-      1;
-
-    transform:
-      none;
-  }
-
-  .premium-ambient {
-    display:
-      none;
-  }
-
-  div.author__avatar::before {
-    animation:
-      none !important;
-  }
-
-}
+})();
