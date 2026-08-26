@@ -1,7 +1,7 @@
 /* =========================================================
    Jiancheng Chi Academic Homepage
    Premium Visual Enhancement
-   Final Version
+   Particle + Interactive Edition
    ========================================================= */
 
 
@@ -18,16 +18,13 @@
   --premium-text: #1e293b;
   --premium-muted: #64748b;
 
-  --premium-border: rgba(37, 99, 235, 0.10);
-  --premium-glass: rgba(255, 255, 255, 0.70);
-
   --mouse-x: 50vw;
-  --mouse-y: 30vh;
+  --mouse-y: 35vh;
 }
 
 
 /* =========================================================
-   1. GLOBAL BACKGROUND
+   1. GLOBAL
    ========================================================= */
 
 html {
@@ -40,20 +37,22 @@ body {
 
   background:
     radial-gradient(
-      circle at 10% -10%,
+      circle at 10% 0%,
       rgba(96, 165, 250, 0.10),
       transparent 34%
     ),
     radial-gradient(
-      circle at 92% 10%,
-      rgba(99, 102, 241, 0.075),
+      circle at 90% 12%,
+      rgba(99, 102, 241, 0.07),
       transparent 32%
     ),
     #ffffff;
 }
 
 
-/* Faint technical grid */
+/* =========================================================
+   2. TECHNICAL GRID
+   ========================================================= */
 
 body::before {
   content: "";
@@ -61,74 +60,54 @@ body::before {
   position: fixed;
   inset: 0;
 
+  z-index: 0;
+
   pointer-events: none;
-  z-index: -3;
 
   background-image:
     linear-gradient(
-      rgba(37, 99, 235, 0.026) 1px,
+      rgba(37, 99, 235, 0.022) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(37, 99, 235, 0.026) 1px,
+      rgba(37, 99, 235, 0.022) 1px,
       transparent 1px
     );
 
-  background-size: 42px 42px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.80),
-      rgba(0, 0, 0, 0.15) 65%,
-      transparent
-    );
+  background-size: 44px 44px;
 
   -webkit-mask-image:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.80),
-      rgba(0, 0, 0, 0.15) 65%,
+      rgba(0, 0, 0, 0.70),
+      rgba(0, 0, 0, 0.12) 70%,
+      transparent
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.70),
+      rgba(0, 0, 0, 0.12) 70%,
       transparent
     );
 }
 
 
 /* =========================================================
-   2. MOUSE SPOTLIGHT
-   ========================================================= */
-
-.premium-spotlight {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: -1;
-
-  background:
-    radial-gradient(
-      600px circle at var(--mouse-x) var(--mouse-y),
-      rgba(59, 130, 246, 0.075),
-      transparent 42%
-    );
-
-  transition: opacity 0.25s ease;
-}
-
-
-/* =========================================================
-   3. AMBIENT BACKGROUND LIGHT
+   3. AMBIENT LIGHT
    ========================================================= */
 
 .premium-ambient {
   position: fixed;
   inset: 0;
 
-  pointer-events: none;
+  z-index: 0;
+
   overflow: hidden;
 
-  z-index: -2;
+  pointer-events: none;
 }
 
 .premium-ambient::before,
@@ -142,19 +121,20 @@ body::before {
 
   border-radius: 50%;
 
-  filter: blur(100px);
-  opacity: 0.10;
+  filter: blur(110px);
+
+  opacity: 0.09;
 
   animation:
-    premiumFloat
-    16s
+    premiumAmbientFloat
+    18s
     ease-in-out
     infinite;
 }
 
 .premium-ambient::before {
-  left: -200px;
-  top: 12vh;
+  left: -190px;
+  top: 10%;
 
   background:
     linear-gradient(
@@ -165,8 +145,8 @@ body::before {
 }
 
 .premium-ambient::after {
-  right: -220px;
-  top: 42vh;
+  right: -200px;
+  top: 40%;
 
   background:
     linear-gradient(
@@ -175,10 +155,11 @@ body::before {
       var(--premium-blue-soft)
     );
 
-  animation-delay: -7s;
+  animation-delay: -8s;
 }
 
-@keyframes premiumFloat {
+@keyframes premiumAmbientFloat {
+
   0%,
   100% {
     transform:
@@ -191,15 +172,100 @@ body::before {
       translate3d(0, 45px, 0)
       scale(1.08);
   }
+
 }
 
 
 /* =========================================================
-   4. MASTHEAD / NAVIGATION
+   4. PARTICLE CANVAS
+   ========================================================= */
+
+.premium-particles {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   5. MOUSE SPOTLIGHT
+   ========================================================= */
+
+.premium-spotlight {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      520px circle
+      at var(--mouse-x) var(--mouse-y),
+
+      rgba(59, 130, 246, 0.095),
+
+      rgba(56, 189, 248, 0.035) 30%,
+
+      transparent 68%
+    );
+
+  opacity: 1;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   6. CONTENT LAYER
+   ========================================================= */
+
+#main {
+  position: relative;
+
+  z-index: 2;
+}
+
+.page,
+.page__inner-wrap,
+.page__content,
+.sidebar {
+  position: relative;
+}
+
+
+/*
+ * Important:
+ * keep content backgrounds transparent so particles
+ * remain visible behind the page.
+ */
+
+.page,
+.page__inner-wrap,
+.page__content {
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   7. NAVIGATION
    ========================================================= */
 
 .masthead {
   position: sticky;
+
   top: 0;
 
   z-index: 100;
@@ -216,28 +282,27 @@ body::before {
     saturate(150%);
 
   border-bottom:
-    1px solid rgba(15, 23, 42, 0.055);
+    1px solid
+    rgba(15, 23, 42, 0.055);
 
   transition:
     box-shadow 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
+    background 0.3s ease;
 }
 
 .masthead.premium-scrolled {
   background:
-    rgba(255, 255, 255, 0.88) !important;
+    rgba(255, 255, 255, 0.90) !important;
 
   box-shadow:
     0 8px 30px
-    rgba(15, 23, 42, 0.065);
-
-  border-bottom-color:
-    rgba(37, 99, 235, 0.085);
+    rgba(15, 23, 42, 0.07);
 }
 
-
-/* Navigation links */
+.greedy-nav {
+  background:
+    transparent !important;
+}
 
 .greedy-nav a,
 .masthead a {
@@ -255,44 +320,22 @@ body::before {
       var(--premium-blue),
       var(--premium-cyan)
     ) !important;
-
-  transition:
-    transform 0.25s ease;
 }
 
 
 /* =========================================================
-   5. MAIN CONTENT
-   ========================================================= */
-
-#main {
-  position: relative;
-}
-
-
-/* =========================================================
-   6. SIDEBAR / PROFILE
+   8. AVATAR
    ========================================================= */
 
 /*
- * IMPORTANT:
- *
- * In your current HTML:
+ * Your HTML structure:
  *
  * <div class="author__avatar">
  *   <img class="author__avatar">
  * </div>
  *
- * So the selectors below explicitly distinguish:
- *
- * div.author__avatar
- * img.author__avatar
+ * Keep portrait, white border and glow ring concentric.
  */
-
-
-/* =========================================================
-   AVATAR OUTER CONTAINER
-   ========================================================= */
 
 div.author__avatar {
   position: relative;
@@ -315,25 +358,7 @@ div.author__avatar {
 }
 
 
-/* =========================================================
-   PORTRAIT
-   ========================================================= */
-
-/*
- * The image itself is forced into a true circle.
- *
- * No translation.
- * No asymmetric positioning.
- * No 3D tilt.
- *
- * This ensures:
- *
- * portrait circle
- * white border
- * outer ring
- *
- * all share the same center.
- */
+/* Circular portrait */
 
 div.author__avatar > img.author__avatar {
   position: absolute;
@@ -359,21 +384,12 @@ div.author__avatar > img.author__avatar {
 
   box-sizing: border-box;
 
-  /*
-   * White separation ring.
-   */
-
   border:
-    4px solid rgba(255, 255, 255, 0.98);
+    4px solid
+    rgba(255, 255, 255, 0.98);
 
-  /*
-   * Critical:
-   * clip the four corners of the original rectangular image.
-   */
-
-  overflow: hidden;
-
-  transform: none !important;
+  transform:
+    none !important;
 
   box-shadow:
     0 13px 34px
@@ -381,20 +397,12 @@ div.author__avatar > img.author__avatar {
 
   transition:
     transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
+    cubic-bezier(.22, 1, .36, 1),
     box-shadow 0.35s ease;
 }
 
 
-/* =========================================================
-   ROTATING OUTER RING
-   ========================================================= */
-
-/*
- * The rotating ring is independent from the portrait.
- *
- * It is centered on the same div.author__avatar container.
- */
+/* Rotating blue/cyan/purple outer ring */
 
 div.author__avatar::before {
   content: "";
@@ -414,40 +422,37 @@ div.author__avatar::before {
       from 0deg,
 
       rgba(96, 165, 250, 0.04) 0deg,
+      rgba(96, 165, 250, 0.52) 40deg,
+      rgba(56, 189, 248, 0.78) 90deg,
 
-      rgba(96, 165, 250, 0.50) 40deg,
+      rgba(99, 102, 241, 0.53) 145deg,
 
-      rgba(56, 189, 248, 0.72) 92deg,
+      rgba(99, 102, 241, 0.08) 195deg,
 
-      rgba(99, 102, 241, 0.50) 145deg,
+      rgba(96, 165, 250, 0.01) 230deg,
 
-      rgba(99, 102, 241, 0.10) 195deg,
+      rgba(56, 189, 248, 0.34) 285deg,
 
-      rgba(96, 165, 250, 0.02) 235deg,
-
-      rgba(56, 189, 248, 0.30) 285deg,
-
-      rgba(96, 165, 250, 0.52) 330deg,
+      rgba(96, 165, 250, 0.55) 330deg,
 
       rgba(96, 165, 250, 0.04) 360deg
     );
-
-  /*
-   * Convert the gradient disc into a hollow ring.
-   */
 
   -webkit-mask:
     linear-gradient(#000 0 0)
       content-box,
     linear-gradient(#000 0 0);
 
-  -webkit-mask-composite: xor;
+  -webkit-mask-composite:
+    xor;
 
-  mask-composite: exclude;
+  mask-composite:
+    exclude;
 
-  opacity: 0.72;
+  opacity: 0.76;
 
-  transform-origin: center center;
+  transform-origin:
+    center center;
 
   animation:
     premiumAvatarRotate
@@ -455,20 +460,19 @@ div.author__avatar::before {
     linear
     infinite;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
-/* =========================================================
-   SOFT OUTER GLOW
-   ========================================================= */
+/* Outer soft glow */
 
 div.author__avatar::after {
   content: "";
 
   position: absolute;
 
-  inset: -11px;
+  inset: -12px;
 
   z-index: 0;
 
@@ -477,16 +481,17 @@ div.author__avatar::after {
   background: transparent;
 
   box-shadow:
-    0 0 20px rgba(96, 165, 250, 0.14),
-    0 0 38px rgba(56, 189, 248, 0.08);
+    0 0 22px
+    rgba(96, 165, 250, 0.16),
+
+    0 0 42px
+    rgba(56, 189, 248, 0.08);
 
   pointer-events: none;
 }
 
 
-/* =========================================================
-   AVATAR HOVER
-   ========================================================= */
+/* Avatar hover */
 
 div.author__avatar:hover
 > img.author__avatar {
@@ -499,11 +504,8 @@ div.author__avatar:hover
 }
 
 
-/* =========================================================
-   AVATAR ROTATION
-   ========================================================= */
-
 @keyframes premiumAvatarRotate {
+
   from {
     transform:
       rotate(0deg);
@@ -513,11 +515,12 @@ div.author__avatar:hover
     transform:
       rotate(360deg);
   }
+
 }
 
 
 /* =========================================================
-   AUTHOR NAME
+   9. AUTHOR INFO
    ========================================================= */
 
 .author__name {
@@ -525,18 +528,12 @@ div.author__avatar:hover
     -0.025em;
 }
 
-
-/* =========================================================
-   PROFILE LINKS
-   ========================================================= */
-
 .author__urls a {
   position: relative;
 
   transition:
-    transform 0.2s ease,
-    color 0.2s ease,
-    background 0.2s ease;
+    transform 0.20s ease,
+    color 0.20s ease;
 }
 
 .author__urls a:hover {
@@ -546,7 +543,7 @@ div.author__avatar:hover
 
 
 /* =========================================================
-   7. SECTION HEADINGS
+   10. SECTION HEADINGS
    ========================================================= */
 
 .page__content h1,
@@ -579,16 +576,18 @@ div.author__avatar:hover
       var(--premium-cyan)
     );
 
-  transform-origin: left;
+  transform-origin:
+    left;
 
-  transform: scaleX(0);
+  transform:
+    scaleX(0);
 
   opacity: 0;
 
   transition:
     transform 0.65s
-      cubic-bezier(.22, 1, .36, 1),
-    opacity 0.4s ease;
+    cubic-bezier(.22, 1, .36, 1),
+    opacity 0.40s ease;
 }
 
 .page__content h1.premium-visible::after,
@@ -601,55 +600,35 @@ div.author__avatar:hover
 
 
 /* =========================================================
-   8. LINKS
+   11. LINKS
    ========================================================= */
 
 .page__content a {
-  text-decoration-thickness:
-    1px;
+  text-decoration-thickness: 1px;
 
-  text-underline-offset:
-    3px;
+  text-underline-offset: 3px;
 
   transition:
-    color 0.2s ease,
-    text-decoration-color 0.2s ease;
-}
-
-.page__content a:hover {
-  text-decoration-color:
-    rgba(37, 99, 235, 0.50);
+    color 0.20s ease,
+    opacity 0.20s ease;
 }
 
 
 /* =========================================================
-   9. PUBLICATION / PAPER BOXES
+   12. PUBLICATIONS
    ========================================================= */
 
 .paper-box {
   position: relative;
 
-  margin:
-    2px 0;
-
-  border-radius:
-    14px;
-
-  border-bottom:
-    1px solid
-    rgba(15, 23, 42, 0.07)
-    !important;
+  border-radius: 14px;
 
   transition:
     transform 0.32s
-      cubic-bezier(.22, 1, .36, 1),
+    cubic-bezier(.22, 1, .36, 1),
     background 0.32s ease,
-    box-shadow 0.32s ease,
-    border-color 0.32s ease;
+    box-shadow 0.32s ease;
 }
-
-
-/* Left accent */
 
 .paper-box::before {
   content: "";
@@ -662,8 +641,7 @@ div.author__avatar:hover
 
   width: 3px;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
   background:
     linear-gradient(
@@ -687,15 +665,17 @@ div.author__avatar:hover
     translateX(5px);
 
   background:
-    linear-gradient(
-      100deg,
-      rgba(37, 99, 235, 0.042),
-      rgba(56, 189, 248, 0.012)
-    );
+    rgba(255, 255, 255, 0.58);
 
   box-shadow:
     0 13px 34px
-    rgba(15, 23, 42, 0.05);
+    rgba(15, 23, 42, 0.055);
+
+  -webkit-backdrop-filter:
+    blur(4px);
+
+  backdrop-filter:
+    blur(4px);
 }
 
 .paper-box:hover::before {
@@ -705,21 +685,12 @@ div.author__avatar:hover
     scaleY(1);
 }
 
-
-/* Publication image */
-
 .paper-box-image img {
-  border-radius:
-    10px;
-
-  box-shadow:
-    0 10px 25px
-    rgba(15, 23, 42, 0.12)
-    !important;
+  border-radius: 10px;
 
   transition:
     transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
+    cubic-bezier(.22, 1, .36, 1),
     box-shadow 0.35s ease;
 }
 
@@ -729,61 +700,8 @@ div.author__avatar:hover
     translateY(-3px);
 
   box-shadow:
-    0 16px 38px
-    rgba(15, 23, 42, 0.16)
-    !important;
-}
-
-
-/* =========================================================
-   10. BADGES
-   ========================================================= */
-
-.badge {
-  border-radius:
-    5px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #1d4ed8,
-      #2563eb
-    ) !important;
-
-  box-shadow:
-    0 4px 14px
-    rgba(37, 99, 235, 0.22);
-
-  letter-spacing:
-    0.01em;
-}
-
-
-/* =========================================================
-   11. GENERAL LIST ITEMS
-   ========================================================= */
-
-.page__content li {
-  transition:
-    transform 0.22s ease,
-    color 0.22s ease;
-}
-
-.page__content li:hover {
-  transform:
-    translateX(2px);
-}
-
-
-/* =========================================================
-   12. CONTENT IMAGES
-   ========================================================= */
-
-.page__content img {
-  transition:
-    transform 0.35s
-      cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.35s ease;
+    0 15px 34px
+    rgba(15, 23, 42, 0.15) !important;
 }
 
 
@@ -798,10 +716,11 @@ div.author__avatar:hover
     translateY(14px);
 
   transition:
-    opacity 0.72s
-      cubic-bezier(.22, 1, .36, 1),
-    transform 0.72s
-      cubic-bezier(.22, 1, .36, 1);
+    opacity 0.70s
+    cubic-bezier(.22, 1, .36, 1),
+
+    transform 0.70s
+    cubic-bezier(.22, 1, .36, 1);
 
   will-change:
     opacity,
@@ -816,27 +735,13 @@ div.author__avatar:hover
 }
 
 
-/* Slight stagger */
-
-.premium-reveal:nth-child(2n) {
-  transition-delay:
-    40ms;
-}
-
-.premium-reveal:nth-child(3n) {
-  transition-delay:
-    80ms;
-}
-
-
 /* =========================================================
-   14. GOOGLE SCHOLAR CITATION BADGE
+   14. CITATION BADGE
    ========================================================= */
 
 img[src*="shields.io"],
 img[src*="gs_data_shieldsio"] {
-  border-radius:
-    5px;
+  border-radius: 5px;
 
   transition:
     transform 0.25s ease,
@@ -857,7 +762,7 @@ img[src*="gs_data_shieldsio"]:hover {
   filter:
     drop-shadow(
       0 7px 12px
-      rgba(37, 99, 235, 0.14)
+      rgba(37, 99, 235, 0.15)
     );
 }
 
@@ -869,19 +774,20 @@ img[src*="gs_data_shieldsio"]:hover {
 footer {
   position: relative;
 
+  z-index: 2;
+
   background:
-    rgba(248, 250, 252, 0.75)
-    !important;
+    rgba(248, 250, 252, 0.82) !important;
 
   border-top:
     1px solid
     rgba(15, 23, 42, 0.055);
 
   -webkit-backdrop-filter:
-    blur(10px);
+    blur(12px);
 
   backdrop-filter:
-    blur(10px);
+    blur(12px);
 }
 
 
@@ -909,8 +815,7 @@ footer {
   }
 
   ::-webkit-scrollbar-track {
-    background:
-      transparent;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -921,7 +826,7 @@ footer {
       10px;
 
     background:
-      rgba(100, 116, 139, 0.26);
+      rgba(100, 116, 139, 0.28);
 
     background-clip:
       padding-box;
@@ -929,7 +834,7 @@ footer {
 
   ::-webkit-scrollbar-thumb:hover {
     background:
-      rgba(37, 99, 235, 0.32);
+      rgba(37, 99, 235, 0.35);
 
     background-clip:
       padding-box;
@@ -944,41 +849,40 @@ footer {
 
 @media (max-width: 768px) {
 
+  /*
+   * Disable Canvas particles on mobile for battery
+   * and scrolling performance.
+   */
+
+  .premium-particles {
+    display: none;
+  }
+
+  .premium-spotlight {
+    display: none;
+  }
+
   body::before {
-    opacity:
-      0.55;
+    opacity: 0.55;
 
     background-size:
       34px 34px;
   }
 
-  .premium-spotlight {
-    display:
-      none;
-  }
-
   .premium-ambient::before,
   .premium-ambient::after {
-    opacity:
-      0.06;
-
-    filter:
-      blur(120px);
-  }
-
-  .paper-box:hover {
-    transform:
-      none;
-  }
-
-  .page__content li:hover {
-    transform:
-      none;
+    opacity: 0.055;
   }
 
   div.author__avatar {
-    max-width:
-      190px;
+    max-width: 190px;
+  }
+
+  div.author__avatar::before {
+    inset: -6px;
+
+    animation-duration:
+      24s;
   }
 
   div.author__avatar:hover
@@ -987,15 +891,8 @@ footer {
       none !important;
   }
 
-  div.author__avatar::before {
-    inset:
-      -6px;
-
-    opacity:
-      0.55;
-
-    animation-duration:
-      24s;
+  .paper-box:hover {
+    transform: none;
   }
 
 }
@@ -1025,17 +922,22 @@ footer {
       0.001ms !important;
   }
 
-  .premium-reveal {
-    opacity:
-      1;
+  .premium-particles {
+    display: none;
+  }
 
-    transform:
-      none;
+  .premium-spotlight {
+    display: none;
+  }
+
+  .premium-reveal {
+    opacity: 1;
+
+    transform: none;
   }
 
   .premium-ambient {
-    display:
-      none;
+    display: none;
   }
 
   div.author__avatar::before {
