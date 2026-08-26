@@ -1,0 +1,725 @@
+/* =========================================================
+   Jiancheng Chi Academic Homepage
+   Premium Visual Enhancement
+   ========================================================= */
+
+/* ---------- Design Tokens ---------- */
+
+:root {
+  --premium-blue: #2563eb;
+  --premium-blue-soft: #60a5fa;
+  --premium-indigo: #6366f1;
+  --premium-cyan: #38bdf8;
+
+  --premium-text: #1e293b;
+  --premium-muted: #64748b;
+
+  --premium-border: rgba(37, 99, 235, 0.10);
+  --premium-glass: rgba(255, 255, 255, 0.70);
+
+  --mouse-x: 50vw;
+  --mouse-y: 30vh;
+}
+
+
+/* =========================================================
+   1. GLOBAL BACKGROUND
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 10% -10%,
+      rgba(96, 165, 250, 0.10),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 92% 10%,
+      rgba(99, 102, 241, 0.075),
+      transparent 32%
+    ),
+    #ffffff;
+}
+
+
+/* ---------- Faint technical grid ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -3;
+
+  background-image:
+    linear-gradient(
+      rgba(37, 99, 235, 0.026) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.026) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.15) 65%,
+      transparent
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.15) 65%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   2. MOUSE SPOTLIGHT
+   ========================================================= */
+
+.premium-spotlight {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(59, 130, 246, 0.075),
+      transparent 42%
+    );
+
+  transition: opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   3. AMBIENT BLOBS
+   ========================================================= */
+
+.premium-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.premium-ambient::before,
+.premium-ambient::after {
+  content: "";
+  position: absolute;
+
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+
+  filter: blur(100px);
+  opacity: 0.10;
+
+  animation: premiumFloat 16s ease-in-out infinite;
+}
+
+.premium-ambient::before {
+  left: -200px;
+  top: 12vh;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--premium-cyan),
+      var(--premium-blue)
+    );
+}
+
+.premium-ambient::after {
+  right: -220px;
+  top: 42vh;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--premium-indigo),
+      var(--premium-blue-soft)
+    );
+
+  animation-delay: -7s;
+}
+
+@keyframes premiumFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, 45px, 0) scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   4. MASTHEAD / NAVIGATION
+   ========================================================= */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.76) !important;
+
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+
+  border-bottom:
+    1px solid rgba(15, 23, 42, 0.055);
+
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.masthead.premium-scrolled {
+  background: rgba(255, 255, 255, 0.88) !important;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.065);
+
+  border-bottom-color:
+    rgba(37, 99, 235, 0.085);
+}
+
+
+/* Nav links */
+
+.greedy-nav a,
+.masthead a {
+  transition:
+    color 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.greedy-nav .visible-links a::before {
+  height: 2px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--premium-blue),
+      var(--premium-cyan)
+    ) !important;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT
+   ========================================================= */
+
+#main {
+  position: relative;
+}
+
+
+/* =========================================================
+   6. SIDEBAR / PROFILE
+   ========================================================= */
+
+.author__avatar {
+  position: relative;
+}
+
+.author__avatar img {
+  position: relative;
+  z-index: 2;
+
+  transition:
+    transform 0.4s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.4s ease;
+
+  box-shadow:
+    0 14px 40px rgba(15, 23, 42, 0.13),
+    0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+
+.author__avatar::before {
+  content: "";
+  position: absolute;
+
+  inset: -6px;
+  z-index: 1;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(37, 99, 235, 0),
+      rgba(37, 99, 235, 0.7),
+      rgba(56, 189, 248, 0.55),
+      rgba(99, 102, 241, 0.55),
+      rgba(37, 99, 235, 0)
+    );
+
+  opacity: 0.42;
+
+  animation: premiumAvatarRing 12s linear infinite;
+}
+
+.author__avatar::after {
+  content: "";
+  position: absolute;
+
+  inset: -3px;
+  z-index: 1;
+
+  border-radius: 50%;
+  background: white;
+}
+
+.author__avatar:hover img {
+  transform: translateY(-3px) scale(1.018);
+
+  box-shadow:
+    0 20px 52px rgba(15, 23, 42, 0.17),
+    0 0 0 1px rgba(37, 99, 235, 0.12);
+}
+
+@keyframes premiumAvatarRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Author name */
+
+.author__name {
+  letter-spacing: -0.025em;
+}
+
+
+/* Social/profile links */
+
+.author__urls a {
+  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.author__urls a:hover {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   7. SECTION HEADINGS
+   ========================================================= */
+
+.page__content h1,
+.page__content h2 {
+  position: relative;
+
+  margin-top: 1.85em;
+
+  letter-spacing: -0.025em;
+}
+
+.page__content h1::after,
+.page__content h2::after {
+  content: "";
+
+  display: block;
+
+  width: 42px;
+  height: 3px;
+
+  margin-top: 8px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--premium-blue),
+      var(--premium-cyan)
+    );
+
+  transform-origin: left;
+  transform: scaleX(0);
+
+  opacity: 0;
+
+  transition:
+    transform 0.65s cubic-bezier(.22, 1, .36, 1),
+    opacity 0.4s ease;
+}
+
+.page__content h1.premium-visible::after,
+.page__content h2.premium-visible::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+
+/* =========================================================
+   8. LINKS
+   ========================================================= */
+
+.page__content a {
+  text-decoration-thickness: 1px;
+
+  text-underline-offset: 3px;
+
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.page__content a:hover {
+  text-decoration-color:
+    rgba(37, 99, 235, 0.5);
+}
+
+
+/* =========================================================
+   9. PAPER BOXES
+   ========================================================= */
+
+.paper-box {
+  position: relative;
+
+  margin: 2px 0;
+
+  border-radius: 14px;
+
+  transition:
+    transform 0.32s cubic-bezier(.22, 1, .36, 1),
+    background 0.32s ease,
+    box-shadow 0.32s ease,
+    border-color 0.32s ease;
+
+  border-bottom:
+    1px solid rgba(15, 23, 42, 0.07) !important;
+}
+
+.paper-box::before {
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+  top: 15%;
+  bottom: 15%;
+
+  width: 3px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--premium-blue),
+      var(--premium-cyan)
+    );
+
+  opacity: 0;
+
+  transform: scaleY(0.35);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.paper-box:hover {
+  transform: translateX(5px);
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(37, 99, 235, 0.042),
+      rgba(56, 189, 248, 0.012)
+    );
+
+  box-shadow:
+    0 13px 34px rgba(15, 23, 42, 0.05);
+}
+
+.paper-box:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.paper-box-image img {
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.12) !important;
+
+  transition:
+    transform 0.35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.35s ease;
+}
+
+.paper-box:hover .paper-box-image img {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 38px rgba(15, 23, 42, 0.16) !important;
+}
+
+
+/* =========================================================
+   10. BADGES
+   ========================================================= */
+
+.badge {
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #2563eb
+    ) !important;
+
+  box-shadow:
+    0 4px 14px rgba(37, 99, 235, 0.22);
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   11. GENERAL LIST ITEMS
+   ========================================================= */
+
+.page__content li {
+  transition:
+    transform 0.22s ease,
+    color 0.22s ease;
+}
+
+.page__content li:hover {
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   12. IMAGES
+   ========================================================= */
+
+.page__content img {
+  transition:
+    transform 0.35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   13. SCROLL REVEAL
+   ========================================================= */
+
+.premium-reveal {
+  opacity: 0;
+
+  transform: translateY(14px);
+
+  transition:
+    opacity 0.72s cubic-bezier(.22, 1, .36, 1),
+    transform 0.72s cubic-bezier(.22, 1, .36, 1);
+
+  will-change: opacity, transform;
+}
+
+.premium-reveal.premium-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Different subtle delays */
+
+.premium-reveal:nth-child(2n) {
+  transition-delay: 40ms;
+}
+
+.premium-reveal:nth-child(3n) {
+  transition-delay: 80ms;
+}
+
+
+/* =========================================================
+   14. CITATION BADGE
+   ========================================================= */
+
+img[src*="shields.io"],
+img[src*="gs_data_shieldsio"] {
+  border-radius: 5px;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+
+  filter:
+    drop-shadow(
+      0 3px 7px rgba(15, 23, 42, 0.09)
+    );
+}
+
+img[src*="shields.io"]:hover,
+img[src*="gs_data_shieldsio"]:hover {
+  transform: translateY(-2px);
+
+  filter:
+    drop-shadow(
+      0 7px 12px rgba(37, 99, 235, 0.14)
+    );
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+footer {
+  position: relative;
+
+  background:
+    rgba(248, 250, 252, 0.75) !important;
+
+  border-top:
+    1px solid rgba(15, 23, 42, 0.055);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   16. SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   17. SCROLLBAR
+   ========================================================= */
+
+@media (min-width: 800px) {
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 10px;
+
+    background:
+      rgba(100, 116, 139, 0.26);
+
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background:
+      rgba(37, 99, 235, 0.32);
+
+    background-clip: padding-box;
+  }
+}
+
+
+/* =========================================================
+   18. MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  body::before {
+    opacity: 0.55;
+    background-size: 34px 34px;
+  }
+
+  .premium-spotlight {
+    display: none;
+  }
+
+  .premium-ambient::before,
+  .premium-ambient::after {
+    opacity: 0.06;
+    filter: blur(120px);
+  }
+
+  .paper-box:hover {
+    transform: none;
+  }
+
+  .page__content li:hover {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   19. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.001ms !important;
+  }
+
+  .premium-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .premium-ambient {
+    display: none;
+  }
+
+}
