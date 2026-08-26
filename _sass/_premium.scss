@@ -1,6 +1,7 @@
 /* =========================================================
    Jiancheng Chi Academic Homepage
    Premium Visual Enhancement
+   Final Concentric Avatar Version
    ========================================================= */
 
 
@@ -273,8 +274,23 @@ body::before {
    6. SIDEBAR / PROFILE
    ========================================================= */
 
+/*
+ * FINAL CONCENTRIC AVATAR DESIGN
+ *
+ * All circles share the same center:
+ *
+ * 1. Portrait circle
+ * 2. White separation ring
+ * 3. Rotating gradient ring
+ *
+ * No translateX / translateY correction is used.
+ * No 3D tilt should be applied from JavaScript.
+ */
+
 .author__avatar {
   position: relative;
+
+  display: inline-block;
 
   overflow: visible;
 
@@ -282,33 +298,41 @@ body::before {
 }
 
 
-/* ---------------------------------------------------------
-   Main profile image
-
-   Original portrait has a slightly eccentric internal
-   gray circular background, so we visually compensate
-   with a small translation and scale.
-   --------------------------------------------------------- */
+/* =========================================================
+   PORTRAIT
+   ========================================================= */
 
 .author__avatar img {
   position: relative;
 
-  z-index: 4;
+  display: block;
+
+  z-index: 3;
+
+  width: 100%;
+  height: auto;
 
   border-radius: 50%;
 
+  /*
+   * White ring is directly attached to the portrait.
+   * Because the image itself is centered, this ring is
+   * guaranteed to be concentric with the portrait.
+   */
+  border:
+    4px solid rgba(255, 255, 255, 0.98);
+
+  box-sizing: border-box;
+
   transform:
-    translate3d(4px, 2px, 0)
-    scale(1.035);
+    scale(1);
 
   transform-origin:
     center center;
 
   box-shadow:
     0 13px 34px
-      rgba(15, 23, 42, 0.115),
-    0 0 0 3px
-      rgba(255, 255, 255, 0.98);
+      rgba(15, 23, 42, 0.12);
 
   transition:
     transform 0.35s
@@ -317,56 +341,67 @@ body::before {
 }
 
 
-/* ---------------------------------------------------------
-   Rotating outer glow
+/* =========================================================
+   ROTATING CONCENTRIC OUTER RING
+   ========================================================= */
 
-   Only the soft gradient glow rotates.
-   The portrait itself and the white separation ring stay
-   fixed, which keeps the avatar visually stable.
-   --------------------------------------------------------- */
+/*
+ * This pseudo-element is a hollow ring.
+ * It shares the exact same center as the avatar container.
+ */
 
 .author__avatar::before {
   content: "";
 
   position: absolute;
 
-  inset: -8px;
+  inset: -7px;
 
   z-index: 1;
 
   border-radius: 50%;
 
+  padding: 3px;
+
   background:
     conic-gradient(
       from 0deg,
 
-      rgba(96, 165, 250, 0.00) 0deg,
+      rgba(96, 165, 250, 0.05) 0deg,
 
-      rgba(96, 165, 250, 0.46) 45deg,
+      rgba(96, 165, 250, 0.48) 40deg,
 
-      rgba(56, 189, 248, 0.64) 95deg,
+      rgba(56, 189, 248, 0.70) 90deg,
 
-      rgba(99, 102, 241, 0.42) 145deg,
+      rgba(99, 102, 241, 0.48) 145deg,
 
-      rgba(99, 102, 241, 0.08) 195deg,
+      rgba(99, 102, 241, 0.10) 195deg,
 
-      rgba(96, 165, 250, 0.00) 230deg,
+      rgba(96, 165, 250, 0.02) 235deg,
 
-      rgba(56, 189, 248, 0.28) 285deg,
+      rgba(56, 189, 248, 0.32) 285deg,
 
-      rgba(96, 165, 250, 0.46) 325deg,
+      rgba(96, 165, 250, 0.50) 330deg,
 
-      rgba(96, 165, 250, 0.00) 360deg
+      rgba(96, 165, 250, 0.05) 360deg
     );
 
-  opacity: 0.58;
+  /*
+   * Convert full gradient disc into a hollow ring.
+   */
 
-  filter:
-    blur(1.2px);
+  -webkit-mask:
+    linear-gradient(#000 0 0)
+      content-box,
+    linear-gradient(#000 0 0);
 
-  box-shadow:
-    0 0 28px
-    rgba(59, 130, 246, 0.10);
+  -webkit-mask-composite:
+    xor;
+
+  mask-composite:
+    exclude;
+
+  opacity: 0.72;
 
   animation:
     premiumAvatarRotate
@@ -376,51 +411,60 @@ body::before {
 
   transform-origin:
     center center;
+
+  pointer-events:
+    none;
 }
 
 
-/* ---------------------------------------------------------
-   Static white separation layer
-   --------------------------------------------------------- */
+/* =========================================================
+   SOFT CONCENTRIC GLOW
+   ========================================================= */
 
 .author__avatar::after {
   content: "";
 
   position: absolute;
 
-  inset: -2px;
+  inset: -10px;
 
-  z-index: 2;
+  z-index: 0;
 
   border-radius: 50%;
 
-  background:
-    #ffffff;
+  background: transparent;
 
   box-shadow:
-    0 0 0 1px
-    rgba(255, 255, 255, 0.95);
+    0 0 20px
+      rgba(96, 165, 250, 0.14),
+    0 0 38px
+      rgba(56, 189, 248, 0.08);
+
+  pointer-events:
+    none;
 }
 
 
-/* Avatar hover */
+/* =========================================================
+   AVATAR HOVER
+   ========================================================= */
 
 .author__avatar:hover img {
   transform:
-    translate3d(4px, 1px, 0)
-    scale(1.045);
+    scale(1.018);
 
   box-shadow:
     0 17px 42px
-      rgba(15, 23, 42, 0.14),
-    0 0 0 3px
-      rgba(255, 255, 255, 1);
+      rgba(15, 23, 42, 0.15);
 }
 
 
-/* Rotating glow animation */
+/* =========================================================
+   AVATAR ROTATION
+   ========================================================= */
 
 @keyframes premiumAvatarRotate {
+
   from {
     transform:
       rotate(0deg);
@@ -430,10 +474,13 @@ body::before {
     transform:
       rotate(360deg);
   }
+
 }
 
 
-/* Author name */
+/* =========================================================
+   AUTHOR NAME
+   ========================================================= */
 
 .author__name {
   letter-spacing:
@@ -441,7 +488,9 @@ body::before {
 }
 
 
-/* Profile links */
+/* =========================================================
+   PROFILE LINKS
+   ========================================================= */
 
 .author__urls a {
   position: relative;
@@ -891,38 +940,22 @@ footer {
       none;
   }
 
-
-  /*
-   * Slightly reduce portrait correction on mobile.
-   */
-
   .author__avatar img {
     transform:
-      translate3d(3px, 2px, 0)
-      scale(1.03);
+      scale(1);
   }
 
   .author__avatar:hover img {
     transform:
-      translate3d(3px, 2px, 0)
-      scale(1.03);
+      scale(1);
   }
-
-
-  /*
-   * Keep rotating glow on mobile,
-   * but make it more subtle and slower.
-   */
 
   .author__avatar::before {
     inset:
       -6px;
 
     opacity:
-      0.42;
-
-    filter:
-      blur(1.3px);
+      0.55;
 
     animation-duration:
       24s;
