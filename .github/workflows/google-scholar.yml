@@ -1,0 +1,75 @@
+name: Update Google Scholar Stats
+
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    # 每天 UTC 08:00 自动更新
+    - cron: "0 8 * * *"
+
+  # 允许在 GitHub Actions 页面手动运行
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-scholar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install scholarly jsonpickle
+
+      - name: Run Google Scholar crawler
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        run: |
+          cd google_scholar_crawler
+          python main.py
+
+      - name: Check generated files
+        run: |
+          echo "Generated files:"
+          ls -lah google_scholar_crawler/results
+
+          test -f google_scholar_crawler/results/gs_data.json
+          test -f google_scholar_crawler/results/gs_data_shieldsio.json
+
+      - name: Publish statistics to google-scholar-stats branch
+        run: |
+          mkdir -p /tmp/google-scholar-stats
+
+          cp google_scholar_crawler/results/gs_data.json \
+             /tmp/google-scholar-stats/gs_data.json
+
+          cp google_scholar_crawler/results/gs_data_shieldsio.json \
+             /tmp/google-scholar-stats/gs_data_shieldsio.json
+
+          cd /tmp/google-scholar-stats
+
+          git init
+          git checkout -b google-scholar-stats
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add gs_data.json gs_data_shieldsio.json
+          git commit -m "Update Google Scholar statistics"
+
+          git remote add origin \
+            https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+
+          git push --force origin google-scholar-stats
